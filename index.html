@@ -231,6 +231,17 @@
                 box-shadow .4s ease;
         }
 
+        /* FIX: Prevent header name flash during initial page paint */
+        #header-name {
+            opacity: 0;
+            transform: translateY(-5px);
+            pointer-events: none;
+
+            transition:
+                opacity .3s ease,
+                transform .3s ease;
+        }
+
         #site-nav.scrolled {
             background:
                 rgba(251,250,247,.90);
@@ -336,7 +347,7 @@
 
 
         /* =========================================================
-           HERO TYPOGRAPHY — FIXED
+           HERO TYPOGRAPHY
         ========================================================= */
 
         .hero-name {
@@ -1320,7 +1331,6 @@
                 transform:
                     none;
             }
-
         }
 
     </style>
@@ -1329,7 +1339,6 @@
 
 
 <body>
-
 
 <!-- =============================================================
      SCROLL PROGRESS
@@ -1360,6 +1369,7 @@
                 Kavinjith Peiris
 
             </a>
+
 
             <div
                 class="hidden md:flex items-center gap-9 text-[11px] font-semibold uppercase tracking-[.18em]">
@@ -1398,6 +1408,7 @@
 
             </div>
 
+
             <button
                 id="mobile-menu-button"
                 type="button"
@@ -1412,6 +1423,7 @@
             </button>
 
         </div>
+
 
         <div
             id="mobile-menu"
@@ -1489,6 +1501,7 @@
         ">
     </div>
 
+
     <div
         class="max-w-5xl mx-auto px-6 lg:px-8 relative z-10">
 
@@ -1514,6 +1527,7 @@
 
                 </div>
 
+
                 <h1
                     id="hero-name"
                     class="hero-name hero-reveal hero-delay-2 font-serif text-[3.5rem] sm:text-6xl md:text-[5.6rem] font-bold leading-[.94] mb-7">
@@ -1526,12 +1540,14 @@
 
                 </h1>
 
+
                 <p
                     class="hero-reveal hero-delay-3 text-lg sm:text-xl md:text-[1.45rem] font-light text-[#AAA9A1] mb-9 max-w-2xl font-serif italic leading-relaxed">
 
                     Medicine Undergraduate | Research & Tech Enthusiast
 
                 </p>
+
 
                 <div
                     class="hero-reveal hero-delay-4 flex flex-wrap items-center justify-center md:justify-start gap-x-7 gap-y-4 text-sm font-medium text-[#999992]">
@@ -1549,6 +1565,7 @@
 
                     </div>
 
+
                     <a
                         href="mailto:kavinjithp@gmail.com"
                         class="hero-contact flex items-center gap-2.5">
@@ -1562,6 +1579,7 @@
                         </span>
 
                     </a>
+
 
                     <a
                         href="https://www.linkedin.com/in/kavinjithpeiris/"
@@ -1582,6 +1600,7 @@
                 </div>
 
             </div>
+
 
             <div
                 class="hero-reveal hero-delay-3 flex justify-center">
@@ -1610,6 +1629,7 @@
 
         </div>
 
+
         <div
             class="mt-20 hidden md:flex items-center gap-4 text-[10px] uppercase tracking-[.2em] text-[#666862]">
 
@@ -1618,7 +1638,7 @@
             </span>
 
             <span
-                class="w-12 h-px bg-[#383B38]">
+                class="w-12 h-px bg-[#383B38">
             </span>
 
             <i
@@ -1660,6 +1680,7 @@
 
             </div>
 
+
             <div>
 
                 <p
@@ -1699,6 +1720,7 @@
 
             </div>
 
+
             <div>
 
                 <div class="space-y-9">
@@ -1724,6 +1746,7 @@
 
                         </div>
 
+
                         <p
                             class="font-medium text-[#6F6E68] font-serif text-lg mb-5">
 
@@ -1731,12 +1754,15 @@
 
                         </p>
 
+
                         <div class="academic-detail">
 
                             <p>
 
                                 <span class="academic-label">
+
                                     Extracurricular Activities
+
                                 </span>
 
                                 Captain of the English Debating Team
@@ -1746,6 +1772,7 @@
                         </div>
 
                     </article>
+
 
                     <article class="academic-entry">
 
@@ -1760,6 +1787,7 @@
 
                         </div>
 
+
                         <p
                             class="font-medium text-[#6F6E68] font-serif text-lg mb-5">
 
@@ -1767,12 +1795,15 @@
 
                         </p>
 
+
                         <div class="academic-detail">
 
                             <p>
 
                                 <span class="academic-label">
+
                                     Extracurricular Activities
+
                                 </span>
 
                                 Secretary of the Media Unit, Captain of the Senior English Debating Team
@@ -1815,6 +1846,7 @@
 
             </div>
 
+
             <div>
 
                 <div class="content-card p-7 md:p-9">
@@ -1830,10 +1862,13 @@
                         </span>
 
                         <span class="meta-copy">
+
                             Publication · 2024
+
                         </span>
 
                     </div>
+
 
                     <h3
                         class="subsection-title text-lg md:text-xl leading-relaxed mb-5">
@@ -1842,28 +1877,35 @@
 
                     </h3>
 
+
                     <div
                         class="space-y-4 text-[#6F6E68] text-sm">
 
                         <p class="leading-8">
 
                             <strong class="text-[#121313]">
+
                                 Details:
+
                             </strong>
 
                             Poster presentation at the SLMA 137th Anniversary International Medical Congress. Published in The Ceylon Medical Journal (Volume 69, S).
 
                         </p>
 
+
                         <p>
 
                             <strong class="text-[#121313]">
+
                                 Date:
+
                             </strong>
 
                             August 18, 2024
 
                         </p>
+
 
                         <div
                             class="mt-7 pt-5 border-t border-[#DDDCD5]">
@@ -1918,9 +1960,11 @@
 
             </div>
 
+
             <div>
 
                 <div class="flex flex-col gap-3">
+
 
                     <button
                         type="button"
@@ -1934,6 +1978,7 @@
                             <i class="fa-solid fa-flask"></i>
 
                         </div>
+
 
                         <div class="min-w-0">
 
@@ -1957,6 +2002,7 @@
 
                         </div>
 
+
                         <div class="certificate-arrow mt-3 mr-1">
 
                             <i class="fa-solid fa-arrow-right"></i>
@@ -1978,6 +2024,7 @@
                             <i class="fa-solid fa-certificate"></i>
 
                         </div>
+
 
                         <div class="min-w-0">
 
@@ -2001,6 +2048,7 @@
 
                         </div>
 
+
                         <div class="certificate-arrow mt-3 mr-1">
 
                             <i class="fa-solid fa-arrow-right"></i>
@@ -2023,6 +2071,7 @@
 
                         </div>
 
+
                         <div class="min-w-0">
 
                             <h3 class="subsection-title mb-1">
@@ -2044,6 +2093,7 @@
                             </p>
 
                         </div>
+
 
                         <div class="certificate-arrow mt-3 mr-1">
 
@@ -2085,6 +2135,7 @@
 
             </div>
 
+
             <div>
 
                 <div class="content-card p-7 md:p-9">
@@ -2108,6 +2159,7 @@
 
                         </div>
 
+
                         <span class="tag px-3.5 py-2">
 
                             2019 - Present
@@ -2115,6 +2167,7 @@
                         </span>
 
                     </div>
+
 
                     <ul
                         class="space-y-5 text-[#6F6E68] small-copy mb-7">
@@ -2136,6 +2189,7 @@
 
                         </li>
 
+
                         <li class="flex items-start gap-3">
 
                             <span
@@ -2154,6 +2208,7 @@
                         </li>
 
                     </ul>
+
 
                     <div class="pt-5 border-t border-[#DDDCD5]">
 
@@ -2203,6 +2258,7 @@
 
             </div>
 
+
             <div class="space-y-10">
 
                 <div class="leadership-item group">
@@ -2224,11 +2280,13 @@
 
                     </div>
 
+
                     <p class="text-[#77766F] text-sm font-serif italic mb-4">
 
                         Faculty of Medicine, University of Kelaniya
 
                     </p>
+
 
                     <ul class="space-y-2 text-[#6F6E68] small-copy">
 
@@ -2262,11 +2320,13 @@
 
                     </div>
 
+
                     <p class="text-[#77766F] text-sm font-serif italic mb-4">
 
                         Faculty of Medicine, University of Kelaniya
 
                     </p>
+
 
                     <ul class="space-y-2 text-[#6F6E68] small-copy">
 
@@ -2310,9 +2370,11 @@
 
             </div>
 
+
             <div>
 
                 <ul class="space-y-6">
+
 
                     <li class="honor-item group">
 
@@ -2477,7 +2539,9 @@
 
             </div>
 
+
             <div class="space-y-10">
+
 
                 <div>
 
@@ -2554,6 +2618,7 @@
                     <h3 class="subsection-title mb-4">
 
                         Soft Skills
+
                     </h3>
 
                     <div class="flex flex-wrap gap-2.5">
@@ -2611,7 +2676,9 @@
             <div class="min-w-0">
 
                 <p class="meta-copy mb-1">
+
                     Certificate viewer
+
                 </p>
 
                 <h2
@@ -2620,6 +2687,7 @@
                 </h2>
 
             </div>
+
 
             <button
                 id="document-modal-close"
@@ -2632,6 +2700,7 @@
             </button>
 
         </div>
+
 
         <div
             id="document-viewer-area"
@@ -2681,12 +2750,15 @@
                 <p class="text-xs text-[#666862]">
 
                     &copy;
+
                     <span id="year"></span>
+
                     Kavinjith Peiris.
 
                 </p>
 
             </div>
+
 
             <div class="flex gap-3">
 
@@ -2700,6 +2772,7 @@
                     <i class="fa-brands fa-linkedin-in text-sm"></i>
 
                 </a>
+
 
                 <a
                     href="mailto:kavinjithp@gmail.com"
@@ -2883,7 +2956,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
                 threshold:
                     0
-            });
+            }
+        );
 
     sections.forEach(section => {
 
@@ -2990,6 +3064,7 @@ document.addEventListener("DOMContentLoaded", () => {
     let lastFocusedElement =
         null;
 
+
     function openDocument(
         url,
         type,
@@ -3009,6 +3084,7 @@ document.addEventListener("DOMContentLoaded", () => {
         imageViewer.classList.add(
             "hidden"
         );
+
 
         if (type === "pdf") {
 
@@ -3042,6 +3118,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
         }
 
+
         modal.classList.add(
             "open"
         );
@@ -3050,6 +3127,7 @@ document.addEventListener("DOMContentLoaded", () => {
             "overflow-hidden"
         );
 
+
         requestAnimationFrame(() => {
 
             closeButton.focus();
@@ -3057,6 +3135,7 @@ document.addEventListener("DOMContentLoaded", () => {
         });
 
     }
+
 
     function closeDocument() {
 
@@ -3079,6 +3158,7 @@ document.addEventListener("DOMContentLoaded", () => {
             "overflow-hidden"
         );
 
+
         if (lastFocusedElement) {
 
             lastFocusedElement.focus();
@@ -3086,6 +3166,7 @@ document.addEventListener("DOMContentLoaded", () => {
         }
 
     }
+
 
     document
         .querySelectorAll(
@@ -3098,13 +3179,9 @@ document.addEventListener("DOMContentLoaded", () => {
                 () => {
 
                     openDocument(
-
                         button.dataset.documentUrl,
-
                         button.dataset.documentType,
-
                         button.dataset.documentTitle
-
                     );
 
                 }
@@ -3112,10 +3189,12 @@ document.addEventListener("DOMContentLoaded", () => {
 
         });
 
+
     closeButton.addEventListener(
         "click",
         closeDocument
     );
+
 
     modal.addEventListener(
         "click",
@@ -3131,6 +3210,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
         }
     );
+
 
     document.addEventListener(
         "keydown",
@@ -3160,6 +3240,7 @@ document.addEventListener("DOMContentLoaded", () => {
         document.getElementById(
             "hero-name"
         );
+
 
     const heroObserver =
         new IntersectionObserver(
@@ -3202,9 +3283,11 @@ document.addEventListener("DOMContentLoaded", () => {
             }
         );
 
+
     heroObserver.observe(
         heroName
     );
+
 
 });
 
