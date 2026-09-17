@@ -1,366 +1,1629 @@
 <!DOCTYPE html>
-
 <html lang="en" class="scroll-smooth">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta name="description"
+        content="Kavinjith Peiris — Medicine Undergraduate, Research & Technology Enthusiast">
+
     <title>Kavinjith Peiris</title>
-    <link rel="icon" type="image/svg+xml" href="favicon.svg">
 
+    <!-- Tailwind -->
+    <script src="https://cdn.tailwindcss.com"></script>
 
-<script src="https://cdn.tailwindcss.com"></script>
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Manrope:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap"
+        rel="stylesheet">
 
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Font Awesome -->
+    <link
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
-<script>
-    tailwind.config = {
-        theme: {
-            extend: {
-                fontFamily: {
-                    sans: ['"Plus Jakarta Sans"', 'sans-serif'],
-                    serif: ['"Playfair Display"', 'serif'],
-                },
-                colors: {
-                    brand: {
-                        50: '#f5f7fa',
-                        100: '#e4e8f1',
-                        200: '#cdd5e3',
-                        300: '#a8b8cf',
-                        400: '#7c94b5',
-                        500: '#5c789d',
-                        600: '#485f80',
-                        700: '#3b4d68',
-                        800: '#324257',
-                        900: '#2d3849',
-                        950: '#1e2430',
-                    },
-                    accent: '#c5a059',
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Manrope', 'sans-serif'],
+                        serif: ['"Playfair Display"', 'serif'],
+                        mono: ['"DM Mono"', 'monospace']
+                    }
                 }
             }
+        };
+    </script>
+
+    <style>
+
+        /* =========================================================
+           COLOR SYSTEM
+        ========================================================= */
+
+        :root {
+            --ink: #121313;
+            --charcoal: #1B1D1C;
+
+            --paper: #FBFAF7;
+            --ivory: #F5F3EE;
+
+            --stone: #77766F;
+            --stone-light: #9A9992;
+
+            --champagne: #B39A6A;
+            --champagne-light: #D0BD96;
+
+            --olive: #6C7464;
+
+            --line: #DDDCD5;
+            --line-dark: rgba(255,255,255,.11);
         }
-    }
-</script>
 
-<style>
-    body {
-        background-color: #fcfcfc;
-        color: #2d3849;
-        -webkit-font-smoothing: antialiased;
-        -moz-osx-font-smoothing: grayscale;
-    }
 
-    .nav-link {
-        position: relative;
-        text-decoration: none;
-    }
+        /* =========================================================
+           RESET
+        ========================================================= */
 
-    .nav-link::after {
-        content: '';
-        position: absolute;
-        width: 0;
-        height: 2px;
-        bottom: -4px;
-        left: 0;
-        background-color: #c5a059;
-        transition: width 0.3s ease;
-    }
+        * {
+            box-sizing: border-box;
+        }
 
-    .nav-link:hover::after {
-        width: 100%;
-    }
+        html {
+            scroll-behavior: smooth;
+            background: var(--paper);
+        }
 
-    .section-title {
-        font-family: "Playfair Display", serif;
-        font-size: 1.125rem;
-        line-height: 1.3;
-        font-weight: 700;
-        letter-spacing: -0.01em;
-    }
+        body {
+            margin: 0;
 
-    .subsection-title {
-        font-family: "Plus Jakarta Sans", sans-serif;
-        font-size: 1.125rem;
-        line-height: 1.4;
-        font-weight: 700;
-    }
+            background:
+                radial-gradient(
+                    circle at 0% 5%,
+                    rgba(179,154,106,.045),
+                    transparent 30rem
+                ),
+                radial-gradient(
+                    circle at 100% 60%,
+                    rgba(108,116,100,.025),
+                    transparent 30rem
+                ),
+                var(--paper);
 
-    .body-copy {
-        font-family: "Plus Jakarta Sans", sans-serif;
-        font-size: 0.9375rem;
-        line-height: 1.7;
-        font-weight: 400;
-    }
+            color: var(--ink);
 
-    .small-copy {
-        font-family: "Plus Jakarta Sans", sans-serif;
-        font-size: 0.875rem;
-        line-height: 1.65;
-        font-weight: 400;
-    }
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
 
-    .meta-copy {
-        font-family: "Plus Jakarta Sans", sans-serif;
-        font-size: 0.6875rem;
-        line-height: 1.4;
-        font-weight: 700;
-        letter-spacing: 0.08em;
-        text-transform: uppercase;
-    }
+            overflow-x: hidden;
+        }
 
-    @media (min-width: 768px) {
+        ::selection {
+            background: rgba(179,154,106,.25);
+            color: var(--ink);
+        }
+
+
+        /* =========================================================
+           SCROLL PROGRESS
+        ========================================================= */
+
+        #scroll-progress {
+            position: fixed;
+            top: 0;
+            left: 0;
+
+            width: 0;
+            height: 2px;
+
+            z-index: 999;
+
+            background:
+                linear-gradient(
+                    90deg,
+                    var(--champagne),
+                    var(--champagne-light)
+                );
+
+            box-shadow:
+                0 0 12px rgba(179,154,106,.35);
+        }
+
+
+        /* =========================================================
+           HERO
+        ========================================================= */
+
+        .hero-section {
+            min-height: 780px;
+
+            position: relative;
+
+            background:
+                radial-gradient(
+                    circle at 78% 30%,
+                    rgba(179,154,106,.085),
+                    transparent 27rem
+                ),
+                radial-gradient(
+                    circle at 15% 90%,
+                    rgba(108,116,100,.045),
+                    transparent 25rem
+                ),
+                linear-gradient(
+                    145deg,
+                    #101211 0%,
+                    #171918 50%,
+                    #101211 100%
+                );
+        }
+
+        .hero-grid {
+            position: absolute;
+            inset: 0;
+
+            background-image:
+                linear-gradient(
+                    rgba(255,255,255,.024) 1px,
+                    transparent 1px
+                ),
+                linear-gradient(
+                    90deg,
+                    rgba(255,255,255,.024) 1px,
+                    transparent 1px
+                );
+
+            background-size: 56px 56px;
+
+            mask-image:
+                linear-gradient(
+                    to bottom,
+                    black,
+                    transparent 88%
+                );
+
+            pointer-events: none;
+        }
+
+        .hero-noise {
+            position: absolute;
+            inset: 0;
+
+            opacity: .018;
+
+            pointer-events: none;
+
+            background-image:
+                url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.8'/%3E%3C/svg%3E");
+        }
+
+        .ambient-glow {
+            position: absolute;
+
+            width: 34rem;
+            height: 34rem;
+
+            border-radius: 50%;
+
+            filter: blur(110px);
+
+            opacity: .10;
+
+            pointer-events: none;
+        }
+
+
+        /* =========================================================
+           NAVIGATION
+        ========================================================= */
+
+        #site-nav {
+            background: transparent;
+
+            transition:
+                background .4s ease,
+                border-color .4s ease,
+                box-shadow .4s ease;
+        }
+
+        #site-nav.scrolled {
+            background:
+                rgba(251,250,247,.90);
+
+            backdrop-filter:
+                blur(24px)
+                saturate(120%);
+
+            -webkit-backdrop-filter:
+                blur(24px)
+                saturate(120%);
+
+            border-bottom-color:
+                rgba(221,220,213,.85);
+
+            box-shadow:
+                0 8px 35px rgba(18,19,19,.055);
+        }
+
+
+        /* =========================================================
+           NAV LINKS
+        ========================================================= */
+
+        .nav-link {
+            position: relative;
+
+            color:
+                rgba(245,243,238,.78);
+
+            transition:
+                color .35s ease;
+        }
+
+        .nav-link::after {
+            content: "";
+
+            position: absolute;
+
+            left: 50%;
+            bottom: -10px;
+
+            width: 0;
+            height: 1px;
+
+            background:
+                var(--champagne);
+
+            transform:
+                translateX(-50%);
+
+            transition:
+                width .35s cubic-bezier(.16,1,.3,1);
+        }
+
+        .nav-link:hover,
+        .nav-link.active {
+            color:
+                #F5F3EE;
+        }
+
+        .nav-link:hover::after,
+        .nav-link.active::after {
+            width: 22px;
+        }
+
+        #site-nav.scrolled .nav-link {
+            color:
+                #77766F;
+        }
+
+        #site-nav.scrolled .nav-link:hover,
+        #site-nav.scrolled .nav-link.active {
+            color:
+                var(--ink);
+        }
+
+
+        /* =========================================================
+           MOBILE MENU
+        ========================================================= */
+
+        .mobile-menu {
+            opacity: 0;
+            visibility: hidden;
+
+            transform:
+                translateY(-8px);
+
+            transition:
+                opacity .25s ease,
+                transform .25s ease,
+                visibility .25s ease;
+        }
+
+        .mobile-menu.open {
+            opacity: 1;
+            visibility: visible;
+
+            transform:
+                translateY(0);
+        }
+
+
+        /* =========================================================
+           HERO TYPOGRAPHY — FIXED
+        ========================================================= */
+
+        .hero-name {
+            letter-spacing: -.025em;
+            overflow: visible;
+        }
+
+        .hero-name span {
+            display: inline-block;
+
+            padding-right: .10em;
+            margin-right: -.10em;
+
+            position: relative;
+            overflow: visible;
+
+            background:
+                linear-gradient(
+                    110deg,
+                    #F2EEE3 5%,
+                    #C9BEA5 52%,
+                    #A98D59 100%
+                );
+
+            -webkit-background-clip: text;
+            background-clip: text;
+
+            -webkit-text-fill-color: transparent;
+            color: transparent;
+
+            transform: translateZ(0);
+        }
+
+        .hero-rule {
+            width: 42px;
+            height: 1px;
+
+            background:
+                var(--champagne);
+        }
+
+        .hero-contact {
+            transition:
+                color .3s ease,
+                transform .3s ease;
+        }
+
+        .hero-contact:hover {
+            color:
+                #F5F3EE;
+
+            transform:
+                translateY(-2px);
+        }
+
+        .hero-contact i {
+            color:
+                var(--champagne);
+        }
+
+
+        /* =========================================================
+           PROFILE
+        ========================================================= */
+
+        .profile-wrap {
+            position: relative;
+        }
+
+        .profile-wrap::before {
+            content: "";
+
+            position: absolute;
+
+            inset: -22px;
+
+            border:
+                1px solid
+                rgba(179,154,106,.18);
+
+            border-radius: 50%;
+
+            transform:
+                rotate(8deg);
+
+            transition:
+                transform .8s cubic-bezier(.16,1,.3,1),
+                border-color .5s ease;
+        }
+
+        .profile-wrap::after {
+            content: "";
+
+            position: absolute;
+
+            inset: -12px;
+
+            border:
+                1px solid
+                rgba(255,255,255,.07);
+
+            border-radius: 50%;
+        }
+
+        .profile-wrap:hover::before {
+            transform:
+                rotate(0deg)
+                scale(1.035);
+
+            border-color:
+                rgba(179,154,106,.35);
+        }
+
+        .profile-ring {
+            position: absolute;
+
+            inset: -6px;
+
+            border:
+                1px solid
+                rgba(179,154,106,.55);
+
+            border-radius: 50%;
+
+            pointer-events: none;
+        }
+
+        .profile-image {
+            filter:
+                saturate(.78)
+                contrast(1.07)
+                brightness(.98);
+
+            transition:
+                transform .8s cubic-bezier(.16,1,.3,1),
+                filter .6s ease;
+        }
+
+        .profile-wrap:hover .profile-image {
+            transform:
+                scale(1.035);
+
+            filter:
+                saturate(.95)
+                contrast(1.06)
+                brightness(1);
+        }
+
+
+        /* =========================================================
+           SECTION SYSTEM
+        ========================================================= */
+
+        .section-shell {
+            position: relative;
+
+            scroll-margin-top: 110px;
+        }
+
+        .section-divider {
+            height: 1px;
+
+            background:
+                linear-gradient(
+                    90deg,
+                    rgba(179,154,106,.45),
+                    var(--line) 22%,
+                    transparent 100%
+                );
+        }
+
+        .section-label {
+            position: relative;
+        }
+
+        .section-label::before {
+            content: "";
+
+            position: absolute;
+
+            top: -15px;
+            left: 0;
+
+            width: 30px;
+            height: 1px;
+
+            background:
+                var(--champagne);
+        }
+
         .section-title {
-            font-size: 1.5rem;
-            line-height: 1.25;
+            font-family:
+                "Playfair Display",
+                serif;
+
+            font-size:
+                1.6rem;
+
+            line-height:
+                1.15;
+
+            font-weight:
+                600;
+
+            letter-spacing:
+                -.025em;
+
+            color:
+                var(--ink);
+        }
+
+        @media (min-width: 768px) {
+            .section-title {
+                font-size:
+                    1.9rem;
+            }
         }
 
         .subsection-title {
-            font-size: 1.25rem;
-            line-height: 1.35;
+            font-family:
+                "Manrope",
+                sans-serif;
+
+            font-size:
+                1.12rem;
+
+            line-height:
+                1.45;
+
+            font-weight:
+                700;
+
+            letter-spacing:
+                -.025em;
+
+            color:
+                var(--ink);
         }
 
         .body-copy {
-            font-size: 1rem;
-            line-height: 1.75;
+            font-family:
+                "Manrope",
+                sans-serif;
+
+            font-size:
+                .98rem;
+
+            line-height:
+                1.95;
+
+            color:
+                #65655F;
         }
-    }
 
-    .section-header {
-        display: flex;
-        align-items: center;
-        gap: 1rem;
-        margin-bottom: 2.5rem;
-    }
+        .small-copy {
+            font-family:
+                "Manrope",
+                sans-serif;
 
-    .section-header::after {
-        content: '';
-        flex-grow: 1;
-        height: 1px;
-        background: linear-gradient(to right, #e4e8f1, transparent);
-    }
+            font-size:
+                .875rem;
 
-    .glass-header {
-        background: rgba(252, 252, 252, 0.85);
-        backdrop-filter: blur(12px);
-        -webkit-backdrop-filter: blur(12px);
-        border-bottom: 1px solid rgba(228, 232, 241, 0.5);
-    }
+            line-height:
+                1.85;
 
-    .content-card {
-        background: #ffffff;
-        border: 1px solid #f0f2f5;
-        border-radius: 0;
-        transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
-        position: relative;
-        overflow: hidden;
-    }
-
-    .content-card::before {
-        content: '';
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 3px;
-        height: 0;
-        background-color: #485f80;
-        transition: height 0.4s ease;
-    }
-
-    .content-card:hover {
-        transform: translateY(-2px);
-        box-shadow: 0 12px 24px -10px rgba(45, 56, 73, 0.08);
-        border-color: #e4e8f1;
-    }
-
-    .content-card:hover::before {
-        height: 100%;
-    }
-
-    .timeline-dot {
-        width: 12px;
-        height: 12px;
-        background-color: #ffffff;
-        border: 3px solid #485f80;
-        border-radius: 50%;
-        position: absolute;
-        left: -30.5px;
-        top: 6px;
-        box-shadow: 0 0 0 4px #fcfcfc;
-    }
-
-    .timeline-line {
-        position: absolute;
-        top: 18px;
-        bottom: -32px;
-        left: 0;
-        width: 1px;
-        background-color: #e4e8f1;
-    }
-
-    .tag {
-        background-color: #f5f7fa;
-        color: #485f80;
-        border: 1px solid #e4e8f1;
-        font-size: 0.75rem;
-        letter-spacing: 0.05em;
-        text-transform: uppercase;
-    }
-
-    .fade-in-up {
-        animation: fadeInUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
-        opacity: 0;
-        transform: translateY(20px);
-    }
-
-    @keyframes fadeInUp {
-        to {
-            opacity: 1;
-            transform: translateY(0);
+            color:
+                #6F6E68;
         }
-    }
 
-    .delay-100 {
-        animation-delay: 100ms;
-    }
+        .meta-copy {
+            font-family:
+                "DM Mono",
+                monospace;
 
-    .delay-200 {
-        animation-delay: 200ms;
-    }
+            font-size:
+                .61rem;
 
-    .delay-300 {
-        animation-delay: 300ms;
-    }
+            line-height:
+                1.4;
 
-    .certificate-link {
-        text-decoration: none;
-        color: inherit;
-        display: flex;
-    }
+            font-weight:
+                500;
 
-    .certificate-link:focus-visible {
-        outline: 2px solid #c5a059;
-        outline-offset: 6px;
-    }
-</style>
-```
+            letter-spacing:
+                .11em;
+
+            text-transform:
+                uppercase;
+
+            color:
+                #8A887F;
+        }
+
+
+        /* =========================================================
+           CONTENT CARDS
+        ========================================================= */
+
+        .content-card {
+            position: relative;
+
+            background:
+                linear-gradient(
+                    145deg,
+                    #FFFFFF,
+                    #F7F6F1
+                );
+
+            border:
+                1px solid
+                rgba(221,220,213,.9);
+
+            border-radius:
+                14px;
+
+            overflow:
+                hidden;
+
+            box-shadow:
+                0 10px 40px
+                rgba(18,19,19,.045);
+
+            transition:
+                transform .5s cubic-bezier(.16,1,.3,1),
+                box-shadow .5s cubic-bezier(.16,1,.3,1),
+                border-color .4s ease;
+        }
+
+        .content-card::before {
+            content: "";
+
+            position: absolute;
+
+            left: 0;
+            top: 0;
+            bottom: 0;
+
+            width: 2px;
+
+            background:
+                linear-gradient(
+                    to bottom,
+                    var(--champagne),
+                    rgba(179,154,106,0)
+                );
+
+            transform:
+                scaleY(0);
+
+            transform-origin:
+                bottom;
+
+            transition:
+                transform .5s
+                cubic-bezier(.16,1,.3,1);
+        }
+
+        .content-card:hover {
+            transform:
+                translateY(-5px);
+
+            box-shadow:
+                0 25px 65px
+                rgba(18,19,19,.085);
+
+            border-color:
+                rgba(179,154,106,.28);
+        }
+
+        .content-card:hover::before {
+            transform:
+                scaleY(1);
+
+            transform-origin:
+                top;
+        }
+
+
+        /* =========================================================
+           EDUCATION
+        ========================================================= */
+
+        .academic-entry {
+            position: relative;
+
+            padding-bottom:
+                2.3rem;
+
+            border-bottom:
+                1px solid
+                var(--line);
+        }
+
+        .academic-entry:last-child {
+            padding-bottom: 0;
+
+            border-bottom:
+                none;
+        }
+
+        .academic-label {
+            display: block;
+
+            margin-bottom:
+                .45rem;
+
+            font-family:
+                "DM Mono",
+                monospace;
+
+            font-size:
+                .59rem;
+
+            font-weight:
+                500;
+
+            letter-spacing:
+                .1em;
+
+            text-transform:
+                uppercase;
+
+            color:
+                #99978E;
+        }
+
+        .academic-detail {
+            color:
+                #6F6E68;
+
+            font-size:
+                .875rem;
+
+            line-height:
+                1.8;
+        }
+
+
+        /* =========================================================
+           CERTIFICATIONS
+        ========================================================= */
+
+        .certificate-link {
+            position: relative;
+
+            width: 100%;
+
+            display: flex;
+
+            align-items: flex-start;
+
+            gap: 1.1rem;
+
+            padding:
+                1.3rem;
+
+            border:
+                1px solid
+                transparent;
+
+            border-radius:
+                13px;
+
+            background:
+                transparent;
+
+            text-decoration:
+                none;
+
+            color:
+                inherit;
+
+            text-align:
+                left;
+
+            transition:
+                background .35s ease,
+                border-color .35s ease,
+                transform .4s
+                cubic-bezier(.16,1,.3,1);
+        }
+
+        .certificate-link:hover {
+            background:
+                rgba(255,255,255,.75);
+
+            border-color:
+                rgba(221,220,213,.9);
+
+            transform:
+                translateX(5px);
+        }
+
+        /* Shared icon sizing */
+        .certificate-icon,
+        .honor-icon {
+            width: 46px;
+            height: 46px;
+            min-width: 46px;
+
+            display:
+                flex;
+
+            align-items:
+                center;
+
+            justify-content:
+                center;
+
+            flex-shrink:
+                0;
+
+            font-size:
+                15px;
+        }
+
+        .certificate-icon {
+            flex:
+                0 0 46px;
+
+            border-radius:
+                12px;
+
+            background:
+                #ECEBE5;
+
+            color:
+                #77766F;
+
+            transition:
+                background .35s ease,
+                color .35s ease,
+                transform .4s ease;
+        }
+
+        .certificate-link:hover
+        .certificate-icon {
+            background:
+                var(--charcoal);
+
+            color:
+                var(--champagne-light);
+
+            transform:
+                translateY(-2px)
+                rotate(-3deg);
+        }
+
+        .certificate-arrow {
+            margin-left:
+                auto;
+
+            opacity:
+                .25;
+
+            color:
+                var(--stone);
+
+            transform:
+                translateX(-5px);
+
+            transition:
+                opacity .3s ease,
+                transform .3s ease,
+                color .3s ease;
+        }
+
+        .certificate-link:hover
+        .certificate-arrow {
+            opacity:
+                1;
+
+            color:
+                var(--champagne);
+
+            transform:
+                translateX(0);
+        }
+
+
+        /* =========================================================
+           TAGS
+        ========================================================= */
+
+        .tag {
+            display:
+                inline-flex;
+
+            align-items:
+                center;
+
+            border-radius:
+                999px;
+
+            background:
+                #F0EFEA;
+
+            color:
+                #696861;
+
+            border:
+                1px solid
+                #E1DFD7;
+
+            font-family:
+                "DM Mono",
+                monospace;
+
+            font-size:
+                .63rem;
+
+            line-height:
+                1;
+
+            letter-spacing:
+                .025em;
+
+            transition:
+                background .3s ease,
+                color .3s ease,
+                border-color .3s ease,
+                transform .3s ease;
+        }
+
+        .tag:hover {
+            background:
+                var(--charcoal);
+
+            color:
+                #F5F3EE;
+
+            border-color:
+                var(--charcoal);
+
+            transform:
+                translateY(-2px);
+        }
+
+
+        /* =========================================================
+           LEADERSHIP
+        ========================================================= */
+
+        .leadership-item {
+            position: relative;
+
+            padding-left:
+                1.5rem;
+        }
+
+        .leadership-item::before {
+            content: "";
+
+            position: absolute;
+
+            left: 0;
+
+            top: .25rem;
+            bottom: .25rem;
+
+            width: 1px;
+
+            background:
+                var(--line);
+
+            transition:
+                background .35s ease;
+        }
+
+        .leadership-item:hover::before {
+            background:
+                var(--champagne);
+        }
+
+
+        /* =========================================================
+           HONORS
+        ========================================================= */
+
+        .honor-item {
+            display: grid;
+
+            grid-template-columns:
+                46px 1fr;
+
+            gap: 1rem;
+
+            padding-bottom:
+                1.5rem;
+
+            border-bottom:
+                1px solid
+                var(--line);
+        }
+
+        .honor-icon {
+            border-radius:
+                12px;
+
+            background:
+                #ECEBE5;
+
+            color:
+                var(--champagne);
+
+            transition:
+                background .35s ease,
+                transform .4s ease,
+                color .35s ease;
+        }
+
+        .honor-item:hover
+        .honor-icon {
+            background:
+                var(--charcoal);
+
+            color:
+                var(--champagne-light);
+
+            transform:
+                translateY(-3px)
+                rotate(-3deg);
+        }
+
+
+        /* =========================================================
+           DOCUMENT MODAL
+        ========================================================= */
+
+        #document-modal {
+            opacity:
+                0;
+
+            visibility:
+                hidden;
+
+            transition:
+                opacity .3s ease,
+                visibility .3s ease;
+        }
+
+        #document-modal.open {
+            opacity:
+                1;
+
+            visibility:
+                visible;
+        }
+
+        .modal-panel {
+            transform:
+                translateY(20px)
+                scale(.985);
+
+            opacity:
+                0;
+
+            transition:
+                transform .4s
+                cubic-bezier(.16,1,.3,1),
+                opacity .3s ease;
+        }
+
+        #document-modal.open
+        .modal-panel {
+            transform:
+                translateY(0)
+                scale(1);
+
+            opacity:
+                1;
+        }
+
+
+        /* =========================================================
+           FOOTER
+        ========================================================= */
+
+        .footer-social {
+            width: 44px;
+            height: 44px;
+
+            border-radius:
+                12px;
+
+            border:
+                1px solid
+                rgba(255,255,255,.11);
+
+            display:
+                flex;
+
+            align-items:
+                center;
+
+            justify-content:
+                center;
+
+            color:
+                #96968F;
+
+            transition:
+                color .3s ease,
+                background .3s ease,
+                border-color .3s ease,
+                transform .35s ease;
+        }
+
+        .footer-social:hover {
+            color:
+                var(--charcoal);
+
+            background:
+                var(--ivory);
+
+            border-color:
+                var(--ivory);
+
+            transform:
+                translateY(-3px);
+        }
+
+
+        /* =========================================================
+           REVEAL ANIMATION
+        ========================================================= */
+
+        .reveal {
+            opacity:
+                0;
+
+            transform:
+                translateY(22px);
+
+            transition:
+                opacity .8s
+                cubic-bezier(.16,1,.3,1),
+                transform .8s
+                cubic-bezier(.16,1,.3,1);
+        }
+
+        .reveal.visible {
+            opacity:
+                1;
+
+            transform:
+                translateY(0);
+        }
+
+        .hero-reveal {
+            opacity:
+                0;
+
+            transform:
+                translateY(18px);
+
+            animation:
+                heroReveal .95s
+                cubic-bezier(.16,1,.3,1)
+                forwards;
+        }
+
+        .hero-delay-1 {
+            animation-delay:
+                .08s;
+        }
+
+        .hero-delay-2 {
+            animation-delay:
+                .20s;
+        }
+
+        .hero-delay-3 {
+            animation-delay:
+                .32s;
+        }
+
+        .hero-delay-4 {
+            animation-delay:
+                .46s;
+        }
+
+        @keyframes heroReveal {
+            to {
+                opacity:
+                    1;
+
+                transform:
+                    translateY(0);
+            }
+        }
+
+
+        /* =========================================================
+           ACCESSIBILITY
+        ========================================================= */
+
+        :focus-visible {
+            outline:
+                1px solid
+                var(--champagne);
+
+            outline-offset:
+                4px;
+        }
+
+
+        /* =========================================================
+           MOBILE
+        ========================================================= */
+
+        @media (max-width: 767px) {
+
+            .hero-section {
+                min-height:
+                    auto;
+            }
+
+            .hero-name {
+                letter-spacing:
+                    -.018em;
+            }
+
+            .hero-name span {
+                padding-right:
+                    .12em;
+
+                margin-right:
+                    -.12em;
+            }
+
+            .profile-wrap::before {
+                inset:
+                    -12px;
+            }
+
+            .certificate-link {
+                padding:
+                    1rem;
+            }
+
+            .section-title {
+                font-size:
+                    1.45rem;
+            }
+
+            .section-shell {
+                scroll-margin-top:
+                    95px;
+            }
+        }
+
+
+        /* =========================================================
+           REDUCED MOTION
+        ========================================================= */
+
+        @media (prefers-reduced-motion: reduce) {
+
+            *,
+            *::before,
+            *::after {
+
+                scroll-behavior:
+                    auto !important;
+
+                animation-duration:
+                    .01ms !important;
+
+                animation-iteration-count:
+                    1 !important;
+
+                transition-duration:
+                    .01ms !important;
+            }
+
+            .reveal {
+                opacity:
+                    1;
+
+                transform:
+                    none;
+            }
+
+        }
+
+    </style>
 
 </head>
 
-<body class="leading-relaxed">
 
-```
-<!-- NAVIGATION -->
-<nav class="fixed top-0 left-0 w-full z-50 glass-header transition-all duration-300">
-    <div class="max-w-6xl mx-auto px-6 lg:px-8">
-        <div class="flex justify-between items-center h-20">
+<body>
 
-            <!-- NAME -->
+
+<!-- =============================================================
+     SCROLL PROGRESS
+============================================================= -->
+
+<div id="scroll-progress"></div>
+
+
+<!-- =============================================================
+     NAVIGATION
+============================================================= -->
+
+<nav
+    id="site-nav"
+    class="fixed top-0 left-0 w-full z-[100] border-b border-transparent bg-transparent">
+
+    <div
+        class="max-w-6xl mx-auto px-6 lg:px-8">
+
+        <div
+            class="h-[76px] flex items-center justify-between">
+
             <a
+                id="header-name"
                 href="#summary"
-                class="font-serif text-xl font-semibold text-brand-900 hover:text-brand-600 transition-colors">
+                class="font-serif text-xl font-semibold tracking-tight text-[#121313] transition-all duration-300">
+
                 Kavinjith Peiris
+
             </a>
 
-            <!-- DESKTOP NAVIGATION -->
-            <div class="hidden md:flex items-center space-x-8 text-sm font-medium text-brand-700 uppercase tracking-widest">
+            <div
+                class="hidden md:flex items-center gap-9 text-[11px] font-semibold uppercase tracking-[.18em]">
 
-                <a href="#summary" class="nav-link hover:text-brand-900">
+                <a
+                    href="#summary"
+                    class="nav-link active">
+
                     Summary
+
                 </a>
 
-                <a href="#education" class="nav-link hover:text-brand-900">
+                <a
+                    href="#education"
+                    class="nav-link">
+
                     Education
+
                 </a>
 
-                <a href="#research" class="nav-link hover:text-brand-900">
+                <a
+                    href="#research"
+                    class="nav-link">
+
                     Research
+
                 </a>
 
-                <a href="#experience" class="nav-link hover:text-brand-900">
+                <a
+                    href="#experience"
+                    class="nav-link">
+
                     Experience
+
                 </a>
 
             </div>
 
+            <button
+                id="mobile-menu-button"
+                type="button"
+                class="md:hidden w-11 h-11 rounded-xl border border-[#DDDCD5] bg-white/70 flex items-center justify-center text-[#121313]"
+                aria-label="Open navigation"
+                aria-expanded="false">
+
+                <i
+                    class="fa-solid fa-bars">
+                </i>
+
+            </button>
+
         </div>
+
+        <div
+            id="mobile-menu"
+            class="mobile-menu md:hidden absolute left-4 right-4 top-[82px] rounded-2xl border border-[#DDDCD5] bg-[#FBFAF7]/95 backdrop-blur-xl shadow-xl p-3">
+
+            <a
+                href="#summary"
+                class="mobile-nav-link block px-4 py-3 rounded-xl text-sm font-semibold text-[#121313] hover:bg-[#F0EFEA]">
+
+                Summary
+
+            </a>
+
+            <a
+                href="#education"
+                class="mobile-nav-link block px-4 py-3 rounded-xl text-sm font-semibold text-[#121313] hover:bg-[#F0EFEA]">
+
+                Education
+
+            </a>
+
+            <a
+                href="#research"
+                class="mobile-nav-link block px-4 py-3 rounded-xl text-sm font-semibold text-[#121313] hover:bg-[#F0EFEA]">
+
+                Research
+
+            </a>
+
+            <a
+                href="#experience"
+                class="mobile-nav-link block px-4 py-3 rounded-xl text-sm font-semibold text-[#121313] hover:bg-[#F0EFEA]">
+
+                Experience
+
+            </a>
+
+        </div>
+
     </div>
+
 </nav>
 
 
-<!-- HERO -->
-<header class="pt-32 pb-16 md:pt-40 md:pb-24 px-6 lg:px-8 bg-brand-950 text-white relative overflow-hidden">
+<!-- =============================================================
+     HERO
+============================================================= -->
+
+<header
+    class="hero-section relative overflow-hidden text-white pt-32 pb-24 md:pt-44 md:pb-32">
 
     <div
-        class="absolute inset-0 opacity-5"
-        style="background-image: radial-gradient(#ffffff 1px, transparent 1px); background-size: 32px 32px;">
+        class="hero-grid">
     </div>
 
-    <div class="max-w-5xl mx-auto relative z-10 flex flex-col md:flex-row items-center md:items-center justify-between gap-10 md:gap-12 text-center md:text-left">
+    <div
+        class="hero-noise">
+    </div>
 
-        <!-- HERO TEXT -->
-        <div class="order-2 md:order-1 max-w-2xl fade-in-up flex flex-col items-center md:items-start">
+    <div
+        class="ambient-glow"
+        style="
+            background:#B39A6A;
+            top:-12rem;
+            left:-12rem;
+        ">
+    </div>
 
-            <h1 class="font-serif text-4xl sm:text-5xl md:text-7xl font-bold leading-tight mb-4">
-                Kavinjith <br/>
-                <span class="text-brand-300">Peiris</span>
-            </h1>
+    <div
+        class="ambient-glow"
+        style="
+            background:#6C7464;
+            bottom:-12rem;
+            right:-10rem;
+        ">
+    </div>
 
-            <p class="text-lg sm:text-xl md:text-2xl font-light text-brand-200 mb-8 max-w-2xl font-serif italic text-center md:text-left">
-                Medical Undergraduate | Research & Tech Enthusiast
-            </p>
+    <div
+        class="max-w-5xl mx-auto px-6 lg:px-8 relative z-10">
 
-            <div class="flex flex-col sm:flex-row flex-wrap items-center justify-center md:justify-start gap-4 sm:gap-6 text-base font-medium text-brand-200 tracking-wide">
+        <div
+            class="grid md:grid-cols-[1fr_auto] items-center gap-16 md:gap-20">
 
-                <!-- LOCATION -->
-                <div class="flex items-center gap-2 sm:gap-3">
-                    <i class="fa-solid fa-map-pin text-accent"></i>
-                    <span>Kurunegala, Sri Lanka</span>
+            <div
+                class="text-center md:text-left">
+
+                <div
+                    class="hero-reveal hero-delay-1 flex items-center justify-center md:justify-start gap-3 mb-7">
+
+                    <span
+                        class="hero-rule">
+                    </span>
+
+                    <span
+                        class="font-mono text-[10px] tracking-[.2em] uppercase text-[#C9B88F]">
+
+                        Medicine · Research · Technology
+
+                    </span>
+
                 </div>
 
-                <!-- EMAIL -->
-                <div class="flex items-center gap-2 sm:gap-3">
-                    <i class="fa-solid fa-envelope text-accent"></i>
+                <h1
+                    id="hero-name"
+                    class="hero-name hero-reveal hero-delay-2 font-serif text-[3.5rem] sm:text-6xl md:text-[5.6rem] font-bold leading-[.94] mb-7">
+
+                    Kavinjith<br>
+
+                    <span>
+                        Peiris
+                    </span>
+
+                </h1>
+
+                <p
+                    class="hero-reveal hero-delay-3 text-lg sm:text-xl md:text-[1.45rem] font-light text-[#AAA9A1] mb-9 max-w-2xl font-serif italic leading-relaxed">
+
+                    Medicine Undergraduate | Research & Tech Enthusiast
+
+                </p>
+
+                <div
+                    class="hero-reveal hero-delay-4 flex flex-wrap items-center justify-center md:justify-start gap-x-7 gap-y-4 text-sm font-medium text-[#999992]">
+
+                    <div
+                        class="hero-contact flex items-center gap-2.5">
+
+                        <i
+                            class="fa-solid fa-location-dot text-xs">
+                        </i>
+
+                        <span>
+                            Kurunegala, Sri Lanka
+                        </span>
+
+                    </div>
 
                     <a
                         href="mailto:kavinjithp@gmail.com"
-                        class="hover:text-white transition-colors">
-                        Email
-                    </a>
-                </div>
+                        class="hero-contact flex items-center gap-2.5">
 
-                <!-- LINKEDIN -->
-                <div class="flex items-center gap-2 sm:gap-3">
-                    <i class="fa-brands fa-linkedin-in text-accent"></i>
+                        <i
+                            class="fa-solid fa-envelope text-xs">
+                        </i>
+
+                        <span>
+                            Email
+                        </span>
+
+                    </a>
 
                     <a
                         href="https://www.linkedin.com/in/kavinjithpeiris/"
                         target="_blank"
                         rel="noopener noreferrer"
-                        class="hover:text-white transition-colors">
-                        LinkedIn
+                        class="hero-contact flex items-center gap-2.5">
+
+                        <i
+                            class="fa-brands fa-linkedin-in text-xs">
+                        </i>
+
+                        <span>
+                            LinkedIn
+                        </span>
+
                     </a>
+
+                </div>
+
+            </div>
+
+            <div
+                class="hero-reveal hero-delay-3 flex justify-center">
+
+                <div
+                    class="profile-wrap w-52 h-52 md:w-64 md:h-64">
+
+                    <div
+                        class="profile-ring">
+                    </div>
+
+                    <div
+                        class="w-full h-full rounded-full overflow-hidden border-[6px] border-white/5 shadow-2xl">
+
+                        <img
+                            src="profile.jpg"
+                            alt="Kavinjith Peiris"
+                            class="profile-image w-full h-full object-cover"
+                            onerror="this.src='https://placehold.co/400x400/171918/F5F3EE?text=Photo'">
+
+                    </div>
+
                 </div>
 
             </div>
 
         </div>
 
+        <div
+            class="mt-20 hidden md:flex items-center gap-4 text-[10px] uppercase tracking-[.2em] text-[#666862]">
 
-        <!-- PROFILE IMAGE -->
-        <div class="order-1 md:order-2 fade-in-up delay-200 flex-shrink-0 flex justify-center w-full md:w-auto">
+            <span>
+                Scroll to explore
+            </span>
 
-            <div class="w-48 h-48 md:w-64 md:h-64 rounded-full overflow-hidden border-4 border-brand-800 shadow-2xl">
+            <span
+                class="w-12 h-px bg-[#383B38]">
+            </span>
 
-                <img
-                    src="profile.jpg"
-                    alt="Kavinjith Peiris"
-                    class="w-full h-full object-cover"
-                    onerror="this.src='https://placehold.co/400x400/324257/ffffff?text=Photo'">
-
-            </div>
+            <i
+                class="fa-solid fa-arrow-down text-[#B39A6A]">
+            </i>
 
         </div>
 
@@ -369,401 +1632,539 @@
 </header>
 
 
-<main class="max-w-5xl mx-auto px-6 lg:px-8 py-12 md:py-24 space-y-16 md:space-y-24">
+<!-- =============================================================
+     MAIN CONTENT
+============================================================= -->
+
+<main
+    class="max-w-5xl mx-auto px-6 lg:px-8 py-16 md:py-28">
+
 
     <!-- SUMMARY -->
-    <section id="summary" class="scroll-mt-32 fade-in-up delay-100">
 
-        <div class="md:flex md:gap-12">
+    <section
+        id="summary"
+        class="section-shell scroll-mt-28 reveal">
 
-            <div class="md:w-1/4 min-w-0 flex-shrink-0 mb-5 md:mb-0">
+        <div
+            class="grid md:grid-cols-[1fr_3fr] gap-8 md:gap-14">
 
-                <h2 class="section-title text-brand-900 border-t-2 border-accent pt-4 inline-block md:block w-auto md:w-full whitespace-nowrap md:whitespace-normal md:max-w-full">
+            <div>
+
+                <h2
+                    class="section-title section-label">
+
                     Summary
+
                 </h2>
 
             </div>
 
-            <div class="md:w-3/4">
+            <div>
 
-                <p class="body-copy text-brand-700 font-light">
+                <p
+                    class="body-copy">
+
                     Final year medical undergraduate at the University of Kelaniya with a multidisciplinary background spanning healthcare, research, and technology. Experienced in academic research, data analysis, biostatistics, and Geographic Information Systems (GIS), with a strong interest in applying technology and data driven approaches to healthcare. Demonstrated skills in scientific communication, project management, and leadership, complemented by professional experience in graphic design and content creation.
+
                 </p>
 
             </div>
 
         </div>
+
     </section>
 
 
+    <div class="section-divider my-16 md:my-24"></div>
+
+
     <!-- EDUCATION -->
-    <section id="education" class="scroll-mt-24 md:scroll-mt-32 border-t border-brand-100 pt-10 md:pt-16">
 
-        <div class="md:flex md:gap-12">
+    <section
+        id="education"
+        class="section-shell scroll-mt-28 reveal">
 
-            <div class="md:w-1/4 min-w-0 flex-shrink-0 mb-5 md:mb-0">
+        <div
+            class="grid md:grid-cols-[1fr_3fr] gap-8 md:gap-14">
 
-                <h2 class="section-title text-brand-900 border-t-2 border-accent pt-4 inline-block md:block w-auto md:w-full whitespace-nowrap md:whitespace-normal md:max-w-full">
+            <div>
+
+                <h2
+                    class="section-title section-label">
+
                     Education
+
                 </h2>
 
             </div>
 
-            <div class="md:w-3/4">
+            <div>
 
-                <div class="relative pl-6 border-l border-brand-200 space-y-12">
+                <div class="space-y-9">
 
-                    <div class="relative">
+                    <article class="academic-entry">
 
-                        <div class="timeline-dot"></div>
+                        <div
+                            class="flex flex-col sm:flex-row sm:items-baseline sm:justify-between gap-2 mb-3">
 
-                        <div class="mb-2 flex flex-col sm:flex-row sm:justify-between sm:items-baseline gap-2">
+                            <h3
+                                class="subsection-title">
 
-                            <h3 class="subsection-title text-brand-900">
                                 University of Kelaniya, Sri Lanka
+
                             </h3>
 
-                            <span class="text-xs font-bold text-brand-500 uppercase tracking-wider">
+                            <span
+                                class="meta-copy">
+
                                 Expected Sept 2026
+
                             </span>
 
                         </div>
 
-                        <p class="font-medium text-brand-700 mb-3 font-serif text-lg">
+                        <p
+                            class="font-medium text-[#6F6E68] font-serif text-lg mb-5">
+
                             Bachelor of Medicine, Bachelor of Surgery – MBBS
+
                         </p>
 
-                        <ul class="space-y-2 text-brand-700 small-copy">
+                        <div class="academic-detail">
 
-                            <li class="flex items-start gap-2">
+                            <p>
 
-                                <i class="fa-solid fa-angle-right text-brand-300 mt-1 text-xs"></i>
-
-                                <span>
-                                    <strong class="font-semibold text-brand-900">
-                                        Extracurricular Activities:
-                                    </strong>
-                                    Captain of the English Debating Team
+                                <span class="academic-label">
+                                    Extracurricular Activities
                                 </span>
 
-                            </li>
+                                Captain of the English Debating Team
 
-                        </ul>
+                            </p>
 
-                    </div>
+                        </div>
 
+                    </article>
 
-                    <div class="relative">
+                    <article class="academic-entry">
 
-                        <div class="timeline-dot"></div>
+                        <div class="mb-3">
 
-                        <div class="mb-2">
+                            <h3
+                                class="subsection-title">
 
-                            <h3 class="subsection-title text-brand-900">
                                 St. Anne's College, Kurunegala, Sri Lanka
+
                             </h3>
 
                         </div>
 
-                        <ul class="space-y-3 text-brand-700 small-copy mt-3">
+                        <p
+                            class="font-medium text-[#6F6E68] font-serif text-lg mb-5">
 
-                            <li class="flex items-start gap-2">
+                            G.C.E. Advanced Level (Biology Stream) – 3As (Island Merits)
 
-                                <i class="fa-solid fa-angle-right text-brand-300 mt-1 text-xs"></i>
+                        </p>
 
-                                <span>
-                                    <strong class="font-semibold text-brand-900">
-                                        Academics:
-                                    </strong>
-                                    G.C.E. Advanced Level (Biology Stream) – 3As (Island Merits)
+                        <div class="academic-detail">
+
+                            <p>
+
+                                <span class="academic-label">
+                                    Extracurricular Activities
                                 </span>
 
-                            </li>
+                                Secretary of the Media Unit, Captain of the Senior English Debating Team
 
-                            <li class="flex items-start gap-2">
+                            </p>
 
-                                <i class="fa-solid fa-angle-right text-brand-300 mt-1 text-xs"></i>
+                        </div>
 
-                                <span>
-                                    <strong class="font-semibold text-brand-900">
-                                        Extracurricular Activities:
-                                    </strong>
-                                    Secretary of the Media Unit, Captain of the Senior English Debating Team
-                                </span>
-
-                            </li>
-
-                        </ul>
-
-                    </div>
+                    </article>
 
                 </div>
+
             </div>
 
         </div>
+
     </section>
 
 
+    <div class="section-divider my-16 md:my-24"></div>
+
+
     <!-- RESEARCH -->
-    <section id="research" class="scroll-mt-24 md:scroll-mt-32 border-t border-brand-100 pt-10 md:pt-16">
 
-        <div class="md:flex md:gap-12">
+    <section
+        id="research"
+        class="section-shell scroll-mt-28 reveal">
 
-            <div class="md:w-1/4 min-w-0 flex-shrink-0 mb-5 md:mb-0">
+        <div
+            class="grid md:grid-cols-[1fr_3fr] gap-8 md:gap-14">
 
-                <h2 class="section-title text-brand-900 border-t-2 border-accent pt-4 inline-block md:block w-auto md:w-full whitespace-nowrap md:whitespace-normal md:max-w-full">
+            <div>
+
+                <h2
+                    class="section-title section-label">
+
                     Research & Publications
+
                 </h2>
 
             </div>
 
-            <div class="md:w-3/4">
+            <div>
 
-                <div class="content-card p-6 md:p-8 bg-brand-50 border-none">
+                <div class="content-card p-7 md:p-9">
 
-                    <h3 class="subsection-title text-brand-900 mb-4">
+                    <div
+                        class="flex items-center gap-3 mb-6">
+
+                        <span
+                            class="w-9 h-9 rounded-xl bg-[#1B1D1C] text-[#D0BD96] flex items-center justify-center">
+
+                            <i class="fa-solid fa-book-open text-xs"></i>
+
+                        </span>
+
+                        <span class="meta-copy">
+                            Publication · 2024
+                        </span>
+
+                    </div>
+
+                    <h3
+                        class="subsection-title text-lg md:text-xl leading-relaxed mb-5">
+
                         Screen time utilization among medical undergraduates and its impact on academic performance: a study at the University of Kelaniya, Sri Lanka
+
                     </h3>
 
-                    <div class="space-y-4 text-brand-700 text-sm">
+                    <div
+                        class="space-y-4 text-[#6F6E68] text-sm">
 
-                        <p class="leading-relaxed">
-                            <strong class="text-brand-900">Details:</strong>
+                        <p class="leading-8">
+
+                            <strong class="text-[#121313]">
+                                Details:
+                            </strong>
+
                             Poster presentation at the SLMA 137th Anniversary International Medical Congress. Published in The Ceylon Medical Journal (Volume 69, S).
+
                         </p>
 
                         <p>
-                            <strong class="text-brand-900">Date:</strong>
+
+                            <strong class="text-[#121313]">
+                                Date:
+                            </strong>
+
                             August 18, 2024
+
                         </p>
 
-                        <div class="mt-6 pt-4 border-t border-brand-200">
+                        <div
+                            class="mt-7 pt-5 border-t border-[#DDDCD5]">
 
                             <a
                                 href="https://www.researchgate.net/publication/394492274_Screen_time_utilization_among_medical_undergraduates_and_its_impact_on_academic_performance_a_study_at_the_University_of_Kelaniya_Sri_Lanka"
                                 target="_blank"
                                 rel="noopener noreferrer"
-                                class="inline-flex items-center gap-2 text-brand-800 font-bold text-sm uppercase tracking-wider hover:text-accent transition-colors">
+                                class="inline-flex items-center gap-3 text-[#6F6E68] font-bold text-[11px] uppercase tracking-[.16em] hover:text-[#B39A6A] transition-colors">
 
-                                <i class="fa-solid fa-book-open"></i>
-                                View on ResearchGate
+                                <span>
+                                    View on ResearchGate
+                                </span>
+
+                                <i class="fa-solid fa-arrow-up-right-from-square text-[10px]"></i>
 
                             </a>
 
                         </div>
 
                     </div>
+
                 </div>
 
             </div>
 
         </div>
+
     </section>
+
+
+    <div class="section-divider my-16 md:my-24"></div>
 
 
     <!-- CERTIFICATIONS -->
-    <section id="certifications" class="scroll-mt-24 md:scroll-mt-32 border-t border-brand-100 pt-10 md:pt-16">
 
-        <div class="md:flex md:gap-12">
+    <section
+        id="certifications"
+        class="section-shell scroll-mt-28 reveal">
 
-            <div class="md:w-1/4 min-w-0 flex-shrink-0 mb-5 md:mb-0">
+        <div
+            class="grid md:grid-cols-[1fr_3fr] gap-8 md:gap-14">
 
-                <h2 class="section-title text-brand-900 border-t-2 border-accent pt-4 inline-block md:block w-auto md:w-full whitespace-nowrap md:whitespace-normal md:max-w-full">
+            <div>
+
+                <h2
+                    class="section-title section-label">
+
                     Certifications
+
                 </h2>
 
             </div>
 
-            <div class="md:w-3/4">
+            <div>
 
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <div class="flex flex-col gap-3">
 
+                    <button
+                        type="button"
+                        data-document-type="pdf"
+                        data-document-url="https://raw.githubusercontent.com/kavinjithpeiris/portfolio/main/documents/Kavinjith%20Peiris%20-%202026-2027%20Introduction%20to%20the%20Principles%20and%20Practice%20of%20Clinical%20Research.pdf"
+                        data-document-title="Introduction to the Principles and Practice of Clinical Research (IPPCR)"
+                        class="certificate-link group">
 
-                    <!-- IPPCR — September 2026 -->
-                    <a
-                        href="https://docs.google.com/gview?embedded=1&url=https://raw.githubusercontent.com/kavinjithpeiris/portfolio/main/documents/Kavinjith%20Peiris%20-%202026-2027%20Introduction%20to%20the%20Principles%20and%20Practice%20of%20Clinical%20Research.pdf"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        class="certificate-link group items-start gap-4 cursor-pointer">
+                        <div class="certificate-icon">
 
-                        <div class="flex-shrink-0 mt-1">
-                            <i class="fa-solid fa-flask text-brand-300 text-2xl group-hover:text-accent transition-colors"></i>
+                            <i class="fa-solid fa-flask"></i>
+
                         </div>
 
-                        <div>
+                        <div class="min-w-0">
 
-                            <h3 class="subsection-title text-brand-900 mb-1 group-hover:text-brand-600 transition-colors">
+                            <h3 class="subsection-title mb-1">
+
                                 Introduction to the Principles and Practice of Clinical Research (IPPCR)
+
                             </h3>
 
-                            <p class="text-brand-600 text-sm">
+                            <p class="text-[#6F6E68] text-sm">
+
                                 National Institutes of Health (NIH)
+
                             </p>
 
-                            <p class="text-brand-500 text-xs mt-1">
+                            <p class="text-[#8A887F] text-xs mt-1.5 font-mono">
+
                                 Issued: September 2026
-                            </p>
 
-                            <p class="text-brand-400 text-xs mt-2 opacity-0 group-hover:opacity-100 transition-opacity">
-                                <i class="fa-solid fa-arrow-up-right-from-square mr-1"></i>
-                                View certificate
                             </p>
 
                         </div>
 
-                    </a>
+                        <div class="certificate-arrow mt-3 mr-1">
 
+                            <i class="fa-solid fa-arrow-right"></i>
 
-                    <!-- Biostatistics — May 2025 -->
-                    <a
-                        href="https://docs.google.com/gview?embedded=1&url=https://raw.githubusercontent.com/kavinjithpeiris/portfolio/main/documents/Coursera%205UVEV4X8J5CR.pdf"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        class="certificate-link group items-start gap-4 cursor-pointer">
-
-                        <div class="flex-shrink-0 mt-1">
-                            <i class="fa-solid fa-certificate text-brand-300 text-2xl group-hover:text-accent transition-colors"></i>
                         </div>
 
-                        <div>
+                    </button>
 
-                            <h3 class="subsection-title text-brand-900 mb-1 group-hover:text-brand-600 transition-colors">
+
+                    <button
+                        type="button"
+                        data-document-type="pdf"
+                        data-document-url="https://raw.githubusercontent.com/kavinjithpeiris/portfolio/main/documents/Coursera%205UVEV4X8J5CR.pdf"
+                        data-document-title="Biostatistics in Public Health Specialization"
+                        class="certificate-link group">
+
+                        <div class="certificate-icon">
+
+                            <i class="fa-solid fa-certificate"></i>
+
+                        </div>
+
+                        <div class="min-w-0">
+
+                            <h3 class="subsection-title mb-1">
+
                                 Biostatistics in Public Health Specialization
+
                             </h3>
 
-                            <p class="text-brand-600 text-sm">
+                            <p class="text-[#6F6E68] text-sm">
+
                                 The Johns Hopkins University (via Coursera)
+
                             </p>
 
-                            <p class="text-brand-500 text-xs mt-1">
+                            <p class="text-[#8A887F] text-xs mt-1.5 font-mono">
+
                                 Issued: May 2025
-                            </p>
 
-                            <p class="text-brand-400 text-xs mt-1 font-mono bg-brand-50 inline-block px-2 py-1 rounded">
-                                ID: 5UVEV4X8J5CR
-                            </p>
-
-                            <p class="text-brand-400 text-xs mt-2 opacity-0 group-hover:opacity-100 transition-opacity">
-                                <i class="fa-solid fa-arrow-up-right-from-square mr-1"></i>
-                                View certificate
                             </p>
 
                         </div>
 
-                    </a>
+                        <div class="certificate-arrow mt-3 mr-1">
 
+                            <i class="fa-solid fa-arrow-right"></i>
 
-                    <!-- GIS — May 2025 -->
-                    <a
-                        href="https://raw.githubusercontent.com/kavinjithpeiris/portfolio/main/documents/1763476332341.jpg"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        class="certificate-link group items-start gap-4 cursor-pointer">
-
-                        <div class="flex-shrink-0 mt-1">
-                            <i class="fa-solid fa-earth-americas text-brand-300 text-2xl group-hover:text-accent transition-colors"></i>
                         </div>
 
-                        <div>
+                    </button>
 
-                            <h3 class="subsection-title text-brand-900 mb-1 group-hover:text-brand-600 transition-colors">
+
+                    <button
+                        type="button"
+                        data-document-type="image"
+                        data-document-url="https://raw.githubusercontent.com/kavinjithpeiris/portfolio/main/documents/1763476332341.jpg"
+                        data-document-title="Geographic Information Systems (GIS) in Healthcare"
+                        class="certificate-link group">
+
+                        <div class="certificate-icon">
+
+                            <i class="fa-solid fa-earth-americas"></i>
+
+                        </div>
+
+                        <div class="min-w-0">
+
+                            <h3 class="subsection-title mb-1">
+
                                 Geographic Information Systems (GIS) in Healthcare
+
                             </h3>
 
-                            <p class="text-brand-600 text-sm">
+                            <p class="text-[#6F6E68] text-sm">
+
                                 University of Kelaniya, Sri Lanka
+
                             </p>
 
-                            <p class="text-brand-500 text-xs mt-1">
+                            <p class="text-[#8A887F] text-xs mt-1.5 font-mono">
+
                                 Issued: May 2025
-                            </p>
 
-                            <p class="text-brand-400 text-xs mt-2 opacity-0 group-hover:opacity-100 transition-opacity">
-                                <i class="fa-solid fa-arrow-up-right-from-square mr-1"></i>
-                                View certificate
                             </p>
 
                         </div>
 
-                    </a>
+                        <div class="certificate-arrow mt-3 mr-1">
+
+                            <i class="fa-solid fa-arrow-right"></i>
+
+                        </div>
+
+                    </button>
 
                 </div>
+
             </div>
 
         </div>
+
     </section>
 
 
+    <div class="section-divider my-16 md:my-24"></div>
+
+
     <!-- EXPERIENCE -->
-    <section id="experience" class="scroll-mt-24 md:scroll-mt-32 border-t border-brand-100 pt-10 md:pt-16">
 
-        <div class="md:flex md:gap-12">
+    <section
+        id="experience"
+        class="section-shell scroll-mt-28 reveal">
 
-            <div class="md:w-1/4 min-w-0 flex-shrink-0 mb-5 md:mb-0">
+        <div
+            class="grid md:grid-cols-[1fr_3fr] gap-8 md:gap-14">
 
-                <h2 class="section-title text-brand-900 border-t-2 border-accent pt-4 inline-block md:block w-auto md:w-full whitespace-nowrap md:whitespace-normal md:max-w-full">
+            <div>
+
+                <h2
+                    class="section-title section-label">
+
                     Experience
+
                 </h2>
 
             </div>
 
-            <div class="md:w-3/4">
+            <div>
 
-                <div class="content-card p-6 md:p-8">
+                <div class="content-card p-7 md:p-9">
 
-                    <div class="flex flex-col sm:flex-row justify-between items-start mb-4 gap-2">
+                    <div
+                        class="flex flex-col sm:flex-row justify-between items-start mb-7 gap-4">
 
                         <div>
 
-                            <h3 class="subsection-title text-brand-900">
+                            <h3 class="subsection-title">
+
                                 Freelance Graphic Designer & Content Writer
+
                             </h3>
 
-                            <p class="text-brand-600 font-medium font-serif italic mt-1">
+                            <p class="text-[#77766F] font-medium font-serif italic mt-1.5">
+
                                 Self-Employed
+
                             </p>
 
                         </div>
 
-                        <span class="tag px-3 py-1 font-bold">
+                        <span class="tag px-3.5 py-2">
+
                             2019 - Present
+
                         </span>
 
                     </div>
 
-                    <ul class="space-y-4 text-brand-700 small-copy mb-6">
+                    <ul
+                        class="space-y-5 text-[#6F6E68] small-copy mb-7">
 
                         <li class="flex items-start gap-3">
 
-                            <i class="fa-solid fa-check text-accent mt-1 text-xs"></i>
+                            <span
+                                class="mt-1.5 w-5 h-5 rounded-full bg-[#ECEBE5] flex items-center justify-center flex-shrink-0">
+
+                                <i class="fa-solid fa-check text-[#B39A6A] text-[9px]"></i>
+
+                            </span>
 
                             <span>
+
                                 Collaborated remotely with a diverse portfolio of international clients to deliver high quality visual concepts, graphic design solutions, and written content.
+
                             </span>
 
                         </li>
 
                         <li class="flex items-start gap-3">
 
-                            <i class="fa-solid fa-check text-accent mt-1 text-xs"></i>
+                            <span
+                                class="mt-1.5 w-5 h-5 rounded-full bg-[#ECEBE5] flex items-center justify-center flex-shrink-0">
+
+                                <i class="fa-solid fa-check text-[#B39A6A] text-[9px]"></i>
+
+                            </span>
 
                             <span>
+
                                 Managed end to end project workflows, from initial client consultation and requirement gathering to final delivery, ensuring strict adherence to deadlines.
+
                             </span>
 
                         </li>
 
                     </ul>
 
-                    <div class="pt-4 border-t border-brand-100">
+                    <div class="pt-5 border-t border-[#DDDCD5]">
 
                         <a
                             href="https://www.peopleperhour.com/freelancer/video-photo-audio/peiris-k-graphic-designer-content-writer-zavqzmyw"
                             target="_blank"
                             rel="noopener noreferrer"
-                            class="text-sm text-brand-600 hover:text-brand-900 font-bold uppercase tracking-wider inline-flex items-center gap-2 transition-colors">
+                            class="text-[11px] text-[#6F6E68] hover:text-[#121313] font-bold uppercase tracking-[.16em] inline-flex items-center gap-3 transition-colors">
 
                             PeoplePerHour Profile
+
                             <i class="fa-solid fa-arrow-right-long"></i>
 
                         </a>
@@ -771,53 +2172,76 @@
                     </div>
 
                 </div>
+
             </div>
 
         </div>
+
     </section>
 
 
+    <div class="section-divider my-16 md:my-24"></div>
+
+
     <!-- LEADERSHIP -->
-    <section id="leadership" class="scroll-mt-24 md:scroll-mt-32 border-t border-brand-100 pt-10 md:pt-16">
 
-        <div class="md:flex md:gap-12">
+    <section
+        id="leadership"
+        class="section-shell scroll-mt-28 reveal">
 
-            <div class="md:w-1/4 min-w-0 flex-shrink-0 mb-5 md:mb-0">
+        <div
+            class="grid md:grid-cols-[1fr_3fr] gap-8 md:gap-14">
 
-                <h2 class="section-title text-brand-900 border-t-2 border-accent pt-4 inline-block md:block w-auto md:w-full whitespace-nowrap md:whitespace-normal md:max-w-full">
+            <div>
+
+                <h2
+                    class="section-title section-label">
+
                     Leadership & University Involvement
+
                 </h2>
 
             </div>
 
-            <div class="md:w-3/4 space-y-10">
+            <div class="space-y-10">
 
-                <div class="group">
+                <div class="leadership-item group">
 
-                    <div class="flex flex-col sm:flex-row justify-between items-baseline mb-2">
+                    <div
+                        class="flex flex-col sm:flex-row justify-between items-baseline gap-2 mb-2">
 
-                        <h3 class="subsection-title text-brand-900">
+                        <h3 class="subsection-title">
+
                             Committee Member, Faculty Media Unit
+
                         </h3>
 
-                        <span class="text-xs font-bold text-brand-500 uppercase tracking-wider mt-1 sm:mt-0">
+                        <span class="meta-copy">
+
                             2023 – 2024
+
                         </span>
 
                     </div>
 
-                    <p class="text-brand-600 text-sm font-serif italic mb-4">
+                    <p class="text-[#77766F] text-sm font-serif italic mb-4">
+
                         Faculty of Medicine, University of Kelaniya
+
                     </p>
 
-                    <ul class="space-y-2 text-brand-700 small-copy pl-4 border-l-2 border-brand-200">
+                    <ul class="space-y-2 text-[#6F6E68] small-copy">
 
                         <li>
+
                             Collaborated with peers to manage internal and external faculty communications, event coverage, and digital content creation.
+
                         </li>
 
                         <li>
+
                             Utilized creative and technical skills to support the unit's initiatives and enhance the faculty's public presence.
+
                         </li>
 
                     </ul>
@@ -825,24 +2249,31 @@
                 </div>
 
 
-                <div class="group">
+                <div class="leadership-item group">
 
-                    <div class="flex flex-col sm:flex-row justify-between items-baseline mb-2">
+                    <div
+                        class="flex flex-col sm:flex-row justify-between items-baseline gap-2 mb-2">
 
-                        <h3 class="subsection-title text-brand-900">
+                        <h3 class="subsection-title">
+
                             Member, Curricular Committee
+
                         </h3>
 
                     </div>
 
-                    <p class="text-brand-600 text-sm font-serif italic mb-4">
+                    <p class="text-[#77766F] text-sm font-serif italic mb-4">
+
                         Faculty of Medicine, University of Kelaniya
+
                     </p>
 
-                    <ul class="space-y-2 text-brand-700 small-copy pl-4 border-l-2 border-brand-200">
+                    <ul class="space-y-2 text-[#6F6E68] small-copy">
 
                         <li>
+
                             Actively attended board meetings alongside faculty leadership to discuss, review, and evaluate the medical curriculum.
+
                         </li>
 
                     </ul>
@@ -850,45 +2281,65 @@
                 </div>
 
             </div>
+
         </div>
+
     </section>
 
 
+    <div class="section-divider my-16 md:my-24"></div>
+
+
     <!-- HONORS -->
-    <section id="honors" class="scroll-mt-24 md:scroll-mt-32 border-t border-brand-100 pt-10 md:pt-16">
 
-        <div class="md:flex md:gap-12">
+    <section
+        id="honors"
+        class="section-shell scroll-mt-28 reveal">
 
-            <div class="md:w-1/4 min-w-0 flex-shrink-0 mb-5 md:mb-0">
+        <div
+            class="grid md:grid-cols-[1fr_3fr] gap-8 md:gap-14">
 
-                <h2 class="section-title text-brand-900 border-t-2 border-accent pt-4 inline-block md:block w-auto md:w-full whitespace-nowrap md:whitespace-normal md:max-w-full">
+            <div>
+
+                <h2
+                    class="section-title section-label">
+
                     Honors & Awards
+
                 </h2>
 
             </div>
 
-            <div class="md:w-3/4">
+            <div>
 
-                <ul class="space-y-6 text-sm">
+                <ul class="space-y-6">
 
-                    <li class="flex items-start gap-4 pb-6 border-b border-brand-100 last:border-0 last:pb-0">
+                    <li class="honor-item group">
 
-                        <div class="mt-1 text-accent">
+                        <div class="honor-icon">
+
                             <i class="fa-solid fa-trophy"></i>
+
                         </div>
 
                         <div>
 
-                            <h3 class="subsection-title text-brand-900">
+                            <h3 class="subsection-title">
+
                                 2nd Runners-up, Debating
+
                             </h3>
 
-                            <p class="text-brand-600 mt-1">
+                            <p class="text-[#77766F] mt-1">
+
                                 Inter-university Debating Competition
+
                             </p>
 
-                            <p class="text-brand-400 text-xs mt-1 uppercase tracking-wider">
+                            <p class="meta-copy mt-2">
+
                                 July 2024
+
                             </p>
 
                         </div>
@@ -896,24 +2347,32 @@
                     </li>
 
 
-                    <li class="flex items-start gap-4 pb-6 border-b border-brand-100 last:border-0 last:pb-0">
+                    <li class="honor-item group">
 
-                        <div class="mt-1 text-accent">
+                        <div class="honor-icon">
+
                             <i class="fa-solid fa-award"></i>
+
                         </div>
 
                         <div>
 
-                            <h3 class="subsection-title text-brand-900">
+                            <h3 class="subsection-title">
+
                                 Championship, Debating
+
                             </h3>
 
-                            <p class="text-brand-600 mt-1">
+                            <p class="text-[#77766F] mt-1">
+
                                 Prof. Carlo Fonseka Memorial Debating Competition
+
                             </p>
 
-                            <p class="text-brand-400 text-xs mt-1 uppercase tracking-wider">
+                            <p class="meta-copy mt-2">
+
                                 November 2021
+
                             </p>
 
                         </div>
@@ -921,24 +2380,32 @@
                     </li>
 
 
-                    <li class="flex items-start gap-4 pb-6 border-b border-brand-100 last:border-0 last:pb-0">
+                    <li class="honor-item group">
 
-                        <div class="mt-1 text-accent">
+                        <div class="honor-icon">
+
                             <i class="fa-solid fa-medal"></i>
+
                         </div>
 
                         <div>
 
-                            <h3 class="subsection-title text-brand-900">
+                            <h3 class="subsection-title">
+
                                 Best Reality Announcer (English), All Island
+
                             </h3>
 
-                            <p class="text-brand-600 mt-1">
+                            <p class="text-[#77766F] mt-1">
+
                                 Eagle Awards
+
                             </p>
 
-                            <p class="text-brand-400 text-xs mt-1 uppercase tracking-wider">
+                            <p class="meta-copy mt-2">
+
                                 September 2018
+
                             </p>
 
                         </div>
@@ -946,24 +2413,32 @@
                     </li>
 
 
-                    <li class="flex items-start gap-4">
+                    <li class="honor-item group">
 
-                        <div class="mt-1 text-accent">
+                        <div class="honor-icon">
+
                             <i class="fa-solid fa-star"></i>
+
                         </div>
 
                         <div>
 
-                            <h3 class="subsection-title text-brand-900">
+                            <h3 class="subsection-title">
+
                                 National Level 2nd Runners-up, Oratory (Impromptu)
+
                             </h3>
 
-                            <p class="text-brand-600 mt-1">
+                            <p class="text-[#77766F] mt-1">
+
                                 Ministry of Education, Sri Lanka
+
                             </p>
 
-                            <p class="text-brand-400 text-xs mt-1 uppercase tracking-wider">
+                            <p class="meta-copy mt-2">
+
                                 June 2018
+
                             </p>
 
                         </div>
@@ -973,54 +2448,68 @@
                 </ul>
 
             </div>
+
         </div>
+
     </section>
 
 
+    <div class="section-divider my-16 md:my-24"></div>
+
+
     <!-- SKILLS -->
-    <section id="skills" class="scroll-mt-24 md:scroll-mt-32 border-t border-brand-100 pt-10 md:pt-16">
 
-        <div class="md:flex md:gap-12">
+    <section
+        id="skills"
+        class="section-shell scroll-mt-28 reveal">
 
-            <div class="md:w-1/4 min-w-0 flex-shrink-0 mb-5 md:mb-0">
+        <div
+            class="grid md:grid-cols-[1fr_3fr] gap-8 md:gap-14">
 
-                <h2 class="section-title text-brand-900 border-t-2 border-accent pt-4 inline-block md:block w-auto md:w-full whitespace-nowrap md:whitespace-normal md:max-w-full">
+            <div>
+
+                <h2
+                    class="section-title section-label">
+
                     Skills
+
                 </h2>
 
             </div>
 
-            <div class="md:w-3/4 space-y-8">
+            <div class="space-y-10">
 
                 <div>
 
-                    <h3 class="subsection-title text-brand-900 mb-3 border-b border-brand-100 pb-2">
+                    <h3 class="subsection-title mb-4">
+
                         Medical & Research
+
                     </h3>
 
-                    <div class="flex flex-wrap gap-2">
+                    <div class="flex flex-wrap gap-2.5">
 
-                        <span class="tag px-3 py-1.5">
+                        <span class="tag px-4 py-2">
                             Academic Research
                         </span>
 
-                        <span class="tag px-3 py-1.5">
+                        <span class="tag px-4 py-2">
                             Data Analysis
                         </span>
 
-                        <span class="tag px-3 py-1.5">
+                        <span class="tag px-4 py-2">
                             Geographic Information Systems (GIS)
                         </span>
 
-                        <span class="tag px-3 py-1.5">
+                        <span class="tag px-4 py-2">
                             Biostatistics
                         </span>
 
-                        <span class="tag px-3 py-1.5">
+                        <span class="tag px-4 py-2">
                             Scientific Writing
                         </span>
 
-                        <span class="tag px-3 py-1.5">
+                        <span class="tag px-4 py-2">
                             Public Health Concepts
                         </span>
 
@@ -1031,25 +2520,27 @@
 
                 <div>
 
-                    <h3 class="subsection-title text-brand-900 mb-3 border-b border-brand-100 pb-2">
+                    <h3 class="subsection-title mb-4">
+
                         Technical & Creative
+
                     </h3>
 
-                    <div class="flex flex-wrap gap-2">
+                    <div class="flex flex-wrap gap-2.5">
 
-                        <span class="tag px-3 py-1.5">
+                        <span class="tag px-4 py-2">
                             Graphic Design
                         </span>
 
-                        <span class="tag px-3 py-1.5">
+                        <span class="tag px-4 py-2">
                             Visual Communication
                         </span>
 
-                        <span class="tag px-3 py-1.5">
+                        <span class="tag px-4 py-2">
                             Content Writing
                         </span>
 
-                        <span class="tag px-3 py-1.5">
+                        <span class="tag px-4 py-2">
                             Project Management
                         </span>
 
@@ -1060,29 +2551,30 @@
 
                 <div>
 
-                    <h3 class="subsection-title text-brand-900 mb-3 border-b border-brand-100 pb-2">
+                    <h3 class="subsection-title mb-4">
+
                         Soft Skills
                     </h3>
 
-                    <div class="flex flex-wrap gap-2">
+                    <div class="flex flex-wrap gap-2.5">
 
-                        <span class="tag px-3 py-1.5">
+                        <span class="tag px-4 py-2">
                             Public Speaking
                         </span>
 
-                        <span class="tag px-3 py-1.5">
+                        <span class="tag px-4 py-2">
                             Impromptu Oratory
                         </span>
 
-                        <span class="tag px-3 py-1.5">
+                        <span class="tag px-4 py-2">
                             Debating
                         </span>
 
-                        <span class="tag px-3 py-1.5">
+                        <span class="tag px-4 py-2">
                             Leadership
                         </span>
 
-                        <span class="tag px-3 py-1.5">
+                        <span class="tag px-4 py-2">
                             Team Collaboration
                         </span>
 
@@ -1091,94 +2583,632 @@
                 </div>
 
             </div>
+
         </div>
+
     </section>
 
 </main>
 
 
-<!-- FOOTER -->
-<footer class="bg-brand-950 text-brand-300 py-16 mt-20 border-t border-brand-800">
+<!-- =============================================================
+     DOCUMENT VIEWER
+============================================================= -->
 
-    <div class="max-w-5xl mx-auto px-6 lg:px-8 flex flex-col md:flex-row justify-between items-center gap-6">
+<div
+    id="document-modal"
+    class="fixed inset-0 z-[150] bg-black/80 p-3 md:p-8"
+    role="dialog"
+    aria-modal="true"
+    aria-labelledby="document-modal-title">
 
-        <div class="text-center md:text-left">
+    <div
+        class="modal-panel relative w-full h-full max-w-7xl mx-auto bg-[#FBFAF7] rounded-2xl shadow-2xl flex flex-col overflow-hidden">
 
-            <p class="text-sm text-brand-400">
-                &copy; <span id="year"></span> Kavinjith Peiris.
-            </p>
+        <div
+            class="flex items-center justify-between px-5 md:px-7 py-4 border-b border-[#DDDCD5] bg-[#FBFAF7] flex-shrink-0">
+
+            <div class="min-w-0">
+
+                <p class="meta-copy mb-1">
+                    Certificate viewer
+                </p>
+
+                <h2
+                    id="document-modal-title"
+                    class="font-serif text-lg md:text-xl font-semibold text-[#121313] truncate pr-4">
+                </h2>
+
+            </div>
+
+            <button
+                id="document-modal-close"
+                type="button"
+                class="flex-shrink-0 w-11 h-11 rounded-xl flex items-center justify-center text-[#77766F] hover:text-[#121313] hover:bg-[#ECEBE5] transition-colors"
+                aria-label="Close document viewer">
+
+                <i class="fa-solid fa-xmark text-lg"></i>
+
+            </button>
 
         </div>
 
-        <div class="flex space-x-6">
+        <div
+            id="document-viewer-area"
+            class="flex-1 min-h-0 bg-[#E8E7E2] overflow-hidden flex items-center justify-center">
 
-            <a
-                href="https://www.linkedin.com/in/kavinjithpeiris/"
-                target="_blank"
-                rel="noopener noreferrer"
-                class="w-10 h-10 rounded-full border border-brand-700 flex items-center justify-center hover:bg-white hover:text-brand-950 hover:border-white transition-all">
+            <iframe
+                id="document-pdf-viewer"
+                class="hidden w-full h-full border-0"
+                title="PDF certificate viewer"
+                allow="fullscreen">
+            </iframe>
 
-                <i class="fa-brands fa-linkedin-in text-sm"></i>
-
-            </a>
-
-            <a
-                href="mailto:kavinjithp@gmail.com"
-                class="w-10 h-10 rounded-full border border-brand-700 flex items-center justify-center hover:bg-white hover:text-brand-950 hover:border-white transition-all">
-
-                <i class="fa-solid fa-envelope text-sm"></i>
-
-            </a>
+            <img
+                id="document-image-viewer"
+                class="hidden max-w-full max-h-full object-contain p-4 md:p-8"
+                alt="Certificate preview">
 
         </div>
 
     </div>
+
+</div>
+
+
+<!-- =============================================================
+     FOOTER
+============================================================= -->
+
+<footer
+    class="bg-[#121313] text-[#999992] py-16 mt-4 border-t border-white/[.06]">
+
+    <div
+        class="max-w-5xl mx-auto px-6 lg:px-8">
+
+        <div
+            class="flex flex-col md:flex-row justify-between items-center gap-8">
+
+            <div class="text-center md:text-left">
+
+                <p
+                    class="font-serif text-xl text-[#F5F3EE] mb-2">
+
+                    Kavinjith Peiris
+
+                </p>
+
+                <p class="text-xs text-[#666862]">
+
+                    &copy;
+                    <span id="year"></span>
+                    Kavinjith Peiris.
+
+                </p>
+
+            </div>
+
+            <div class="flex gap-3">
+
+                <a
+                    href="https://www.linkedin.com/in/kavinjithpeiris/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="footer-social"
+                    aria-label="LinkedIn">
+
+                    <i class="fa-brands fa-linkedin-in text-sm"></i>
+
+                </a>
+
+                <a
+                    href="mailto:kavinjithp@gmail.com"
+                    class="footer-social"
+                    aria-label="Email">
+
+                    <i class="fa-solid fa-envelope text-sm"></i>
+
+                </a>
+
+            </div>
+
+        </div>
+
+    </div>
+
 </footer>
 
 
-<!-- JAVASCRIPT -->
+<!-- =============================================================
+     JAVASCRIPT
+============================================================= -->
+
 <script>
 
-    document.getElementById('year').textContent = new Date().getFullYear();
+document.addEventListener("DOMContentLoaded", () => {
 
-    document.addEventListener("DOMContentLoaded", function() {
 
-        const observerOptions = {
-            root: null,
-            rootMargin: '0px',
-            threshold: 0.1
-        };
+    /* YEAR */
 
-        const observer = new IntersectionObserver((entries, observer) => {
+    document.getElementById("year").textContent =
+        new Date().getFullYear();
 
-            entries.forEach(entry => {
 
-                if (entry.isIntersecting) {
+    /* NAVIGATION */
 
-                    entry.target.classList.add('fade-in-up');
-                    entry.target.style.opacity = "1";
+    const nav =
+        document.getElementById("site-nav");
 
-                    observer.unobserve(entry.target);
+    function updateNav() {
 
-                }
+        if (window.scrollY > 30) {
 
-            });
+            nav.classList.add("scrolled");
 
-        }, observerOptions);
+        } else {
 
-        const sections = document.querySelectorAll('section:not(#summary)');
+            nav.classList.remove("scrolled");
 
-        sections.forEach(section => {
+        }
 
-            section.style.opacity = "0";
-            observer.observe(section);
+    }
 
-        });
+    window.addEventListener(
+        "scroll",
+        updateNav,
+        { passive: true }
+    );
+
+    updateNav();
+
+
+    /* SCROLL PROGRESS */
+
+    const progress =
+        document.getElementById("scroll-progress");
+
+    function updateProgress() {
+
+        const scrollTop =
+            window.scrollY;
+
+        const scrollHeight =
+            document.documentElement.scrollHeight -
+            document.documentElement.clientHeight;
+
+        const percentage =
+            scrollHeight > 0
+                ? (scrollTop / scrollHeight) * 100
+                : 0;
+
+        progress.style.width =
+            percentage + "%";
+
+    }
+
+    window.addEventListener(
+        "scroll",
+        updateProgress,
+        { passive: true }
+    );
+
+    updateProgress();
+
+
+    /* REVEAL */
+
+    const revealElements =
+        document.querySelectorAll(".reveal");
+
+    const revealObserver =
+        new IntersectionObserver(
+            (entries, observer) => {
+
+                entries.forEach(entry => {
+
+                    if (entry.isIntersecting) {
+
+                        entry.target.classList.add(
+                            "visible"
+                        );
+
+                        observer.unobserve(
+                            entry.target
+                        );
+
+                    }
+
+                });
+
+            },
+            {
+                threshold: .08,
+
+                rootMargin:
+                    "0px 0px -50px 0px"
+            }
+        );
+
+    revealElements.forEach(element => {
+
+        revealObserver.observe(element);
 
     });
 
-</script>
 
+    /* ACTIVE NAV */
+
+    const navLinks =
+        document.querySelectorAll(".nav-link");
+
+    const sections = [
+
+        document.getElementById("summary"),
+
+        document.getElementById("education"),
+
+        document.getElementById("research"),
+
+        document.getElementById("experience")
+
+    ];
+
+    const sectionObserver =
+        new IntersectionObserver(
+            entries => {
+
+                entries.forEach(entry => {
+
+                    if (entry.isIntersecting) {
+
+                        navLinks.forEach(link => {
+
+                            link.classList.toggle(
+                                "active",
+
+                                link.getAttribute("href")
+                                    === "#" + entry.target.id
+                            );
+
+                        });
+
+                    }
+
+                });
+
+            },
+            {
+                rootMargin:
+                    "-35% 0px -55% 0px",
+
+                threshold:
+                    0
+            });
+
+    sections.forEach(section => {
+
+        if (section) {
+
+            sectionObserver.observe(
+                section
+            );
+
+        }
+
+    });
+
+
+    /* MOBILE MENU */
+
+    const mobileButton =
+        document.getElementById(
+            "mobile-menu-button"
+        );
+
+    const mobileMenu =
+        document.getElementById(
+            "mobile-menu"
+        );
+
+    function closeMobileMenu() {
+
+        mobileMenu.classList.remove(
+            "open"
+        );
+
+        mobileButton.setAttribute(
+            "aria-expanded",
+            "false"
+        );
+
+        mobileButton.innerHTML =
+            '<i class="fa-solid fa-bars"></i>';
+
+    }
+
+    mobileButton.addEventListener(
+        "click",
+        () => {
+
+            const isOpen =
+                mobileMenu.classList.toggle(
+                    "open"
+                );
+
+            mobileButton.setAttribute(
+                "aria-expanded",
+                String(isOpen)
+            );
+
+            mobileButton.innerHTML =
+                isOpen
+                    ? '<i class="fa-solid fa-xmark"></i>'
+                    : '<i class="fa-solid fa-bars"></i>';
+
+        }
+    );
+
+    document
+        .querySelectorAll(".mobile-nav-link")
+        .forEach(link => {
+
+            link.addEventListener(
+                "click",
+                closeMobileMenu
+            );
+
+        });
+
+
+    /* DOCUMENT VIEWER */
+
+    const modal =
+        document.getElementById(
+            "document-modal"
+        );
+
+    const modalTitle =
+        document.getElementById(
+            "document-modal-title"
+        );
+
+    const closeButton =
+        document.getElementById(
+            "document-modal-close"
+        );
+
+    const pdfViewer =
+        document.getElementById(
+            "document-pdf-viewer"
+        );
+
+    const imageViewer =
+        document.getElementById(
+            "document-image-viewer"
+        );
+
+    let lastFocusedElement =
+        null;
+
+    function openDocument(
+        url,
+        type,
+        title
+    ) {
+
+        lastFocusedElement =
+            document.activeElement;
+
+        modalTitle.textContent =
+            title;
+
+        pdfViewer.classList.add(
+            "hidden"
+        );
+
+        imageViewer.classList.add(
+            "hidden"
+        );
+
+        if (type === "pdf") {
+
+            const pdfJsViewer =
+                "https://mozilla.github.io/pdf.js/web/viewer.html?file="
+                +
+                encodeURIComponent(url);
+
+            imageViewer.removeAttribute(
+                "src"
+            );
+
+            pdfViewer.src =
+                pdfJsViewer;
+
+            pdfViewer.classList.remove(
+                "hidden"
+            );
+
+        } else {
+
+            pdfViewer.src =
+                "about:blank";
+
+            imageViewer.src =
+                url;
+
+            imageViewer.classList.remove(
+                "hidden"
+            );
+
+        }
+
+        modal.classList.add(
+            "open"
+        );
+
+        document.body.classList.add(
+            "overflow-hidden"
+        );
+
+        requestAnimationFrame(() => {
+
+            closeButton.focus();
+
+        });
+
+    }
+
+    function closeDocument() {
+
+        modal.classList.remove(
+            "open"
+        );
+
+        setTimeout(() => {
+
+            pdfViewer.src =
+                "about:blank";
+
+            imageViewer.removeAttribute(
+                "src"
+            );
+
+        }, 300);
+
+        document.body.classList.remove(
+            "overflow-hidden"
+        );
+
+        if (lastFocusedElement) {
+
+            lastFocusedElement.focus();
+
+        }
+
+    }
+
+    document
+        .querySelectorAll(
+            "[data-document-type]"
+        )
+        .forEach(button => {
+
+            button.addEventListener(
+                "click",
+                () => {
+
+                    openDocument(
+
+                        button.dataset.documentUrl,
+
+                        button.dataset.documentType,
+
+                        button.dataset.documentTitle
+
+                    );
+
+                }
+            );
+
+        });
+
+    closeButton.addEventListener(
+        "click",
+        closeDocument
+    );
+
+    modal.addEventListener(
+        "click",
+        event => {
+
+            if (
+                event.target === modal
+            ) {
+
+                closeDocument();
+
+            }
+
+        }
+    );
+
+    document.addEventListener(
+        "keydown",
+        event => {
+
+            if (
+                event.key === "Escape" &&
+                modal.classList.contains("open")
+            ) {
+
+                closeDocument();
+
+            }
+
+        }
+    );
+
+
+    /* HEADER NAME VISIBILITY */
+
+    const headerName =
+        document.getElementById(
+            "header-name"
+        );
+
+    const heroName =
+        document.getElementById(
+            "hero-name"
+        );
+
+    const heroObserver =
+        new IntersectionObserver(
+            entries => {
+
+                entries.forEach(entry => {
+
+                    if (
+                        entry.isIntersecting
+                    ) {
+
+                        headerName.style.opacity =
+                            "0";
+
+                        headerName.style.transform =
+                            "translateY(-5px)";
+
+                        headerName.style.pointerEvents =
+                            "none";
+
+                    } else {
+
+                        headerName.style.opacity =
+                            "1";
+
+                        headerName.style.transform =
+                            "translateY(0)";
+
+                        headerName.style.pointerEvents =
+                            "auto";
+
+                    }
+
+                });
+
+            },
+            {
+                threshold:
+                    .15
+            }
+        );
+
+    heroObserver.observe(
+        heroName
+    );
+
+});
+
+</script>
 
 </body>
 </html>
