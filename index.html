@@ -139,8 +139,9 @@
         /* =========================================================
            HERO
            
-           Uses dynamic viewport units so the hero is always at
-           least one complete visible screen tall.
+           The hero now fills the viewport on desktop, tablet,
+           and mobile while still being allowed to grow if its
+           content requires more vertical space.
         ========================================================= */
 
         .hero-section {
@@ -152,8 +153,8 @@
             display: flex;
             align-items: center;
 
-            padding-top: 76px;
-            padding-bottom: 40px;
+            padding-top: 96px;
+            padding-bottom: 72px;
 
             background:
                 radial-gradient(
@@ -998,37 +999,64 @@
 
         /* =========================================================
            LEADERSHIP
+           
+           Uses the same circular check-mark treatment as
+           Experience, with the tick aligned to the first
+           line of text.
         ========================================================= */
 
         .leadership-item {
             position: relative;
-
-            padding-left:
-                1.5rem;
         }
 
-        .leadership-item::before {
-            content: "";
-
-            position: absolute;
-
-            left: 0;
-
-            top: .25rem;
-            bottom: .25rem;
-
-            width: 1px;
-
-            background:
-                var(--line);
-
-            transition:
-                background .35s ease;
+        .leadership-item ul {
+            margin-top: 0;
         }
 
-        .leadership-item:hover::before {
+        .leadership-item li {
+            display: flex;
+
+            align-items: flex-start;
+
+            gap: .75rem;
+        }
+
+        .leadership-check {
+            margin-top:
+                1.5px;
+
+            width: 20px;
+            height: 20px;
+            min-width: 20px;
+
+            border-radius:
+                999px;
+
             background:
-                var(--champagne);
+                #ECEBE5;
+
+            display:
+                flex;
+
+            align-items:
+                center;
+
+            justify-content:
+                center;
+
+            flex-shrink:
+                0;
+        }
+
+        .leadership-check i {
+            color:
+                #B39A6A;
+
+            font-size:
+                9px;
+
+            line-height:
+                1;
         }
 
 
@@ -1274,8 +1302,8 @@
                 min-height: 100vh;
                 min-height: 100svh;
 
-                padding-top: 82px;
-                padding-bottom: 44px;
+                padding-top: 88px;
+                padding-bottom: 64px;
             }
 
             .hero-name {
@@ -1458,9 +1486,6 @@
 
         /* =========================================================
            SMALL / SHORT MOBILE SCREENS
-           
-           Prevents the hero from becoming vertically cramped on
-           devices such as smaller iPhones and Android phones.
         ========================================================= */
 
         @media (max-width: 767px) and (max-height: 700px) {
@@ -1970,7 +1995,7 @@
 
 
         <div
-            class="mt-16 hidden md:flex items-center gap-4 text-[10px] uppercase tracking-[.2em] text-[#666862]">
+            class="mt-10 hidden md:flex items-center gap-4 text-[10px] uppercase tracking-[.2em] text-[#666862]">
 
             <span>
                 Scroll to explore
@@ -2599,7 +2624,9 @@
 
             <div class="space-y-10">
 
-                <div class="leadership-item group">
+                <!-- FACULTY MEDIA UNIT -->
+
+                <div class="leadership-item">
 
                     <div
                         class="flex flex-col sm:flex-row justify-between items-baseline gap-2 mb-2">
@@ -2626,17 +2653,41 @@
                     </p>
 
 
-                    <ul class="space-y-2 text-[#6F6E68] small-copy">
+                    <ul
+                        class="space-y-3 text-[#6F6E68] small-copy">
 
                         <li>
 
-                            Collaborated with peers to manage internal and external faculty communications, event coverage, and digital content creation.
+                            <span
+                                class="leadership-check">
+
+                                <i class="fa-solid fa-check"></i>
+
+                            </span>
+
+                            <span>
+
+                                Utilized creative and technical skills to support the unit's initiatives and enhance the faculty's public presence.
+
+                            </span>
 
                         </li>
 
+
                         <li>
 
-                            Utilized creative and technical skills to support the unit's initiatives and enhance the faculty's public presence.
+                            <span
+                                class="leadership-check">
+
+                                <i class="fa-solid fa-check"></i>
+
+                            </span>
+
+                            <span>
+
+                                Collaborated with peers to manage internal and external faculty communications, event coverage, and digital content creation.
+
+                            </span>
 
                         </li>
 
@@ -2645,7 +2696,9 @@
                 </div>
 
 
-                <div class="leadership-item group">
+                <!-- CURRICULAR COMMITTEE -->
+
+                <div class="leadership-item">
 
                     <div
                         class="flex flex-col sm:flex-row justify-between items-baseline gap-2 mb-2">
@@ -2666,11 +2719,23 @@
                     </p>
 
 
-                    <ul class="space-y-2 text-[#6F6E68] small-copy">
+                    <ul
+                        class="space-y-3 text-[#6F6E68] small-copy">
 
                         <li>
 
-                            Actively attended board meetings alongside faculty leadership to discuss, review, and evaluate the medical curriculum.
+                            <span
+                                class="leadership-check">
+
+                                <i class="fa-solid fa-check"></i>
+
+                            </span>
+
+                            <span>
+
+                                Actively attended board meetings alongside faculty leadership to discuss, review, and evaluate the medical curriculum.
+
+                            </span>
 
                         </li>
 
@@ -2954,6 +3019,7 @@
                     <h3 class="subsection-title mb-4">
 
                         Soft Skills
+
                     </h3>
 
                     <div class="flex flex-wrap gap-2.5">
